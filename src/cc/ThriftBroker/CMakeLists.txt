@@ -61,8 +61,12 @@ add_executable(client_test tests/client_test.cc)
 target_link_libraries(client_test HyperThrift HyperCommon Hypertable)
 add_test(ThriftClient-cpp client_test)
 
+# Rediff mail lookup program
+add_executable(rediffmail_srs_lookup rediffmail_srs_lookup.cc)
+target_link_libraries(rediffmail_srs_lookup HyperThrift HyperCommon)
+
 if (NOT HT_COMPONENT_INSTALL OR PACKAGE_THRIFTBROKER)
-  install(TARGETS HyperThrift HyperThriftConfig ThriftBroker
+  install(TARGETS HyperThrift HyperThriftConfig ThriftBroker rediffmail_srs_lookup
           RUNTIME DESTINATION bin
           LIBRARY DESTINATION lib
           ARCHIVE DESTINATION lib)
