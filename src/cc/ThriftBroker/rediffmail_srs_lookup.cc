@@ -46,14 +46,19 @@ namespace Hypertable { namespace ThriftGen {
   struct BasicTest : HqlServiceIf {
     boost::shared_ptr<Thrift::Client> client;
 
-    BasicTest() : client(new Thrift::Client("10.50.50.101", 38080)) {}
+    BasicTest() : client(new Thrift::Client("10.50.50.101", 38080)) { }
 
-    void create_table(const std::string& name, const std::string& schema) {
-      client->create_table(name, schema);
+    void create_namespace(const std::string& ns) {
+      client->create_namespace(ns);
     }
 
-    Scanner open_scanner(const std::string& name, const ScanSpec& scan_spec,bool retry_table_not_found = true) {
-      return client->open_scanner(name, scan_spec, retry_table_not_found);
+    void create_table(const Namespace ns, const std::string& name, const std::string& schema) {
+      client->create_table(ns, name, schema);
+    }
+
+    Scanner open_scanner(const Namespace ns, const std::string& name,
+                         const ScanSpec& scan_spec,bool retry_table_not_found = true) {
+      return client->open_scanner(ns, name, scan_spec, retry_table_not_found);
     }
 
     void next_cells_serialized(CellsSerialized& _return,
@@ -77,9 +82,9 @@ namespace Hypertable { namespace ThriftGen {
       client->next_row(_return, scanner);
     }
 
-    void get_row_serialized(CellsSerialized& _return, const std::string& name,
-                            const std::string& row) {
-      client->get_row_serialized(_return, name, row);
+    void get_row_serialized(CellsSerialized& _return, const Namespace ns,
+                            const std::string& name, const std::string& row) {
+      client->get_row_serialized(_return, ns, name, row);
     }
     
     void next_row_serialized(CellsSerialized& _return,
@@ -87,58 +92,75 @@ namespace Hypertable { namespace ThriftGen {
       client->next_row_serialized(_return, scanner);
     }
 
-    void refresh_shared_mutator(const std::string &name, const MutateSpec &mutate_spec) {
-      client->refresh_shared_mutator(name, mutate_spec);
+    void refresh_shared_mutator(const Namespace ns, const std::string &name, const MutateSpec &mutate_spec) {
+      client->refresh_shared_mutator(ns, name, mutate_spec);
     }
 
     void next_row_as_arrays(std::vector<CellAsArray> & _return,const Scanner scanner) {
       client->next_row_as_arrays(_return, scanner);
     }
 
-    void get_row(std::vector<Cell> & _return, const std::string& name,const std::string& row) {
-      client->get_row(_return, name, row);
+    void get_row(std::vector<Cell> & _return, const Namespace ns, const std::string& name,const std::string& row) {
+      client->get_row(_return, ns, name, row);
     }
 
-    void get_row_as_arrays(std::vector<CellAsArray> & _return, const std::string& name,const std::string& row) {
-      client->get_row_as_arrays(_return, name, row);
+    void get_row_as_arrays(std::vector<CellAsArray> & _return, const Namespace ns,
+                           const std::string& name,const std::string& row) {
+      client->get_row_as_arrays(_return, ns, name, row);
     }
 
     void
-    get_cells_serialized(CellsSerialized& _return, const std::string& name,
-                         const ScanSpec& scan_spec) {
-      client->get_cells_serialized(_return, name, scan_spec);
+    get_cells_serialized(CellsSerialized& _return, const Namespace ns,
+                         const std::string& name, const ScanSpec& scan_spec) {
+      client->get_cells_serialized(_return, ns, name, scan_spec);
     }
 
-    void get_cell(Value& _return, const std::string& name, const std::string& row,const std::string& column) {
-      client->get_cell(_return, name, row, column);
+    void get_cell(Value& _return, const Namespace ns, const std::string& name,
+                  const std::string& row,const std::string& column) {
+      client->get_cell(_return, ns, name, row, column);
     }
 
-    void get_cells(std::vector<Cell> & _return, const std::string& name,const ScanSpec& scan_spec) {
-      client->get_cells(_return, name, scan_spec);
+    void get_cells(std::vector<Cell> & _return, const Namespace ns, 
+                   const std::string& name,const ScanSpec& scan_spec) {
+      client->get_cells(_return, ns, name, scan_spec);
     }
 
-    void get_cells_as_arrays(std::vector<CellAsArray> & _return,const std::string& name, const ScanSpec& scan_spec) {
-      client->get_cells_as_arrays(_return, name, scan_spec);
+    void get_cells_as_arrays(std::vector<CellAsArray> & _return, const Namespace ns,
+                             const std::string& name, const ScanSpec& scan_spec) {
+      client->get_cells_as_arrays(_return, ns, name, scan_spec);
     }
 
-    void put_cell(const std::string &name, const MutateSpec &mutate_spec,const Cell &cell) {
-      client->put_cell(name, mutate_spec, cell);
+    void offer_cell(const Namespace ns, const std::string &name,
+                    const MutateSpec &mutate_spec,const Cell &cell) {
+      client->offer_cell(ns, name, mutate_spec, cell);
     }
 
-    void put_cells(const std::string &name, const MutateSpec &mutate_spec,const std::vector<Cell> & cells) {
-      client->put_cells(name, mutate_spec, cells);
+    void offer_cells(const Namespace ns, const std::string &name,
+                     const MutateSpec &mutate_spec,const std::vector<Cell> & cells) {
+      client->offer_cells(ns, name, mutate_spec, cells);
     }
 
-    void put_cell_as_array(const std::string &name, const MutateSpec &mutate_spec,const CellAsArray &cell) {
-      client->put_cell_as_array(name, mutate_spec, cell);
+    void offer_cell_as_array(const Namespace ns, const std::string &name,
+                             const MutateSpec &mutate_spec,const CellAsArray &cell) {
+      client->offer_cell_as_array(ns, name, mutate_spec, cell);
     }
 
-    void put_cells_as_arrays(const std::string &name, const MutateSpec &mutate_spec,const std::vector<CellAsArray> & cells) {
-      client->put_cells_as_arrays(name, mutate_spec, cells);
+    void offer_cells_as_arrays(const Namespace ns, const std::string &name,
+                               const MutateSpec &mutate_spec,const std::vector<CellAsArray> & cells) {
+      client->offer_cells_as_arrays(ns, name, mutate_spec, cells);
     }
 
-    Mutator open_mutator(const std::string& name, int32_t flags,int32_t flush_interval = 0) {
-      return client->open_mutator(name, flags, flush_interval);
+    Namespace open_namespace(const String &ns) {
+      return client->open_namespace(ns);
+    }
+    
+    void close_namespace(const Namespace ns) {
+      client->close_namespace(ns);
+    }
+
+    Mutator open_mutator(const Namespace ns, const std::string& name,
+                         int32_t flags,int32_t flush_interval = 0) {
+      return client->open_mutator(ns, name, flags, flush_interval);
     }
 
     void close_mutator(const Mutator mutator, const bool flush) {
@@ -160,6 +182,10 @@ namespace Hypertable { namespace ThriftGen {
       client->set_cells_serialized(mutator, cells, flush);
     }
 
+    bool exists_namespace(const std::string& ns) {
+      return client->exists_namespace(ns);
+    }
+
     void set_cells(const Mutator mutator, const std::vector<Cell> & cells) {
       client->set_cells(mutator, cells);
     }
@@ -172,67 +198,83 @@ namespace Hypertable { namespace ThriftGen {
       client->set_cells_as_arrays(mutator, cells);
     }
 
-    bool exists_table(const std::string& name) {
-      return client->exists_table(name);
+    bool exists_table(const Namespace ns, const std::string& name) {
+      return client->exists_table(ns, name);
     }
 
-    int32_t get_table_id(const std::string& name) {
-      return client->get_table_id(name);
+    void get_table_id(std::string& _return, const Namespace ns, const std::string& table) {
+      client->get_table_id(_return, ns, table);
     }
 
-    void get_schema_str(std::string& _return, const std::string& name) {
-      client->get_schema_str(_return, name);
+    void get_schema_str(std::string& _return, const Namespace ns, const std::string& name) {
+      client->get_schema_str(_return, ns, name);
     }
     
-    void get_schema(Schema& _return, const std::string& name) {
-      client->get_schema(_return, name);
+    void get_schema(Schema& _return, const Namespace ns, const std::string& name) {
+      client->get_schema(_return, ns, name);
     }
 
-    void get_tables(std::vector<std::string> & _return) {
-      client->get_tables(_return);
+    void get_tables(std::vector<std::string> & _return, const Namespace ns) {
+      client->get_tables(_return, ns);
     }
 
-    void get_table_splits(std::vector<TableSplit> & _return, const std::string& name) {
-      client->get_table_splits(_return, name);
+    void get_listing(std::vector<NamespaceListing> & _return, const Namespace ns) {
+      client->get_listing(_return, ns);
     }
 
-    void drop_table(const std::string& name, const bool if_exists) {
-      client->drop_table(name, if_exists);
+    void get_table_splits(std::vector<TableSplit> & _return, const Namespace ns,
+                          const std::string& name) {
+      client->get_table_splits(_return, ns, name);
     }
 
-    void hql_exec(HqlResult& _return, const std::string &command, const bool noflush, const bool unbuffered) {
-      client->hql_exec(_return, command, noflush, unbuffered);
+    void drop_namespace(const std::string& ns, const bool if_exists) {
+      client->drop_namespace(ns, if_exists);
     }
 
-    void hql_query(HqlResult &ret, const std::string &command) {
-      client->hql_query(ret, command);
+    void rename_table(const Namespace ns, const std::string& table, const std::string& new_name) {
+      client->rename_table(ns, table, new_name);
     }
 
-    void hql_exec2(HqlResult2& _return, const std::string &command, const bool noflush, const bool unbuffered) {
-      client->hql_exec2(_return, command, noflush, unbuffered);
+    void drop_table(const Namespace ns, const std::string& name, const bool if_exists) {
+      client->drop_table(ns, name, if_exists);
     }
 
-    void hql_query2(HqlResult2 &ret, const std::string &command) {
-      client->hql_query2(ret, command);
+    void hql_exec(HqlResult& _return, const Namespace ns, const std::string &command,
+                  const bool noflush, const bool unbuffered) {
+      client->hql_exec(_return, ns, command, noflush, unbuffered);
     }
 
-    int run(std::string inputstr, int method,std::string tablename, std::string &returnStr) {
+    void hql_query(HqlResult &ret, const Namespace ns, const std::string &command) {
+      client->hql_query(ret, ns, command);
+    }
+
+    void hql_exec2(HqlResult2& _return, const Namespace ns, const std::string &command,
+                   const bool noflush, const bool unbuffered) {
+      client->hql_exec2(_return, ns, command, noflush, unbuffered);
+    }
+
+    void hql_query2(HqlResult2 &ret, const Namespace ns, const std::string &command) {
+      client->hql_query2(ret, ns, command);
+    }
+
+    int run(std::string inputstr, int method, const Namespace ns,
+            std::string tablename, std::string &returnStr) {
       try
         {
           std::ostream &out = std::cout;
           switch (method)
             {
             case 1:
-              getRowsHQL(out,inputstr,tablename,returnStr);
+              getRowsHQL(out,inputstr,ns,tablename,returnStr);
               break;
             case 2:
-              test_get_row(out,inputstr,tablename,returnStr);
+              test_get_row(out,inputstr,ns,tablename,returnStr);
               break;
             case 3:
-              test_scan(out,inputstr,tablename,returnStr);
+              test_scan(out,inputstr,ns,tablename,returnStr);
               break;
             default:
-              test_get_row(out,inputstr,tablename,returnStr);
+              test_get_row(out,inputstr,ns,tablename,returnStr);
               break;
             }
         }
@@ -246,22 +288,24 @@ namespace Hypertable { namespace ThriftGen {
 
     void test_hql(std::ostream &out) {
       HqlResult result;
-      hql_query(result, "drop table if exists thrift_test");
-      hql_query(result, "create table thrift_test ( col )");
-      hql_query(result, "insert into thrift_test values"
+      Namespace ns = open_namespace("rediffmail");
+      hql_query(result, ns, "drop table if exists thrift_test");
+      hql_query(result, ns, "create table thrift_test ( col )");
+      hql_query(result, ns, "insert into thrift_test values"
                 "('2008-11-11 11:11:11', 'k1', 'col', 'v1'), "
                 "('2008-11-11 11:11:11', 'k2', 'col', 'v2'), "
                 "('2008-11-11 11:11:11', 'k3', 'col', 'v3')");
-      hql_query(result, "select * from thrift_test");
+      hql_query(result, ns, "select * from thrift_test");
       out << result << std::endl;
 
       HqlResult2 result2;
-      hql_query2(result2, "select * from thrift_test");
+      hql_query2(result2, ns, "select * from thrift_test");
 
       out << result2 << std::endl;
     }
 
-    int getRowsHQL(std::ostream &out, std::string inputdata, std::string tablename, std::string &returnStr)
+    int getRowsHQL(std::ostream &out, std::string inputdata, const Namespace ns,
+                   std::string tablename, std::string &returnStr)
     {
       HqlResult result;
       //std::string query("select actions from rediffmail_srs where ROW = '");
@@ -270,7 +314,7 @@ namespace Hypertable { namespace ThriftGen {
       query += " where ROW = '";
       query += inputdata;
       query += "'";
-      hql_query(result,query);
+      hql_query(result, ns, query);
       std::vector<Cell> lc;
       std::vector<Cell>::iterator itr;
       lc = result.cells;
@@ -285,10 +329,11 @@ namespace Hypertable { namespace ThriftGen {
       }
       return 0;
     }
-    void test_get_row(std::ostream &out, std::string inputdata, std::string tablename,std::string &returnStr)
+    void test_get_row(std::ostream &out, std::string inputdata, const Namespace ns,
+                      std::string tablename,std::string &returnStr)
     {
       std::vector<Cell> cells;
-      get_row(cells,tablename,inputdata);
+      get_row(cells,ns,tablename,inputdata);
       //std::cout<<"size ["<<cells.size()<<"]"<<std::endl;
       foreach(const Cell &cell, cells) {
         returnStr += cell.key.row;
@@ -301,7 +346,8 @@ namespace Hypertable { namespace ThriftGen {
       }
 
     }
-    void test_scan(std::ostream &out, std::string inputdata, std::string tablename, std::string &returnStr) {
+    void test_scan(std::ostream &out, std::string inputdata, const Namespace ns,
+                   std::string tablename, std::string &returnStr) {
       ScanSpec ss;
       RowInterval RI;
       CellInterval CI;
@@ -324,7 +370,7 @@ namespace Hypertable { namespace ThriftGen {
       //ss.row_intervals.push_back(RI);
       //std::string tablename("rediffmail_srs");
       std::vector<Cell> cells;
-      Scanner s = open_scanner(tablename, ss);
+      Scanner s = open_scanner(ns, tablename, ss);
 
       //int COUNTER = 0;
       do {
@@ -348,12 +394,14 @@ namespace Hypertable { namespace ThriftGen {
     void test_set() {
       std::vector<Cell> cells;
 
-      Mutator m = open_mutator("thrift_test", 0);
+      Namespace ns = open_namespace("rediffmail");
+
+      Mutator m = open_mutator(ns, "thrift_test", 0);
       cells.push_back(make_cell("k4", "col", 0, "v4", "2008-11-11 22:22:22"));
       cells.push_back(make_cell("k5", "col", 0, "v5", "2008-11-11 22:22:22"));
       cells.push_back(make_cell("k2", "col", 0, "v2a", "2008-11-11 22:22:22"));
       cells.push_back(make_cell("k3", "col", 0, "", "2008-11-11 22:22:22", 0,
-                                DELETE_ROW));
+                                ThriftGen::KeyFlag::DELETE_ROW));
       set_cells(m, cells);
       close_mutator(m, true);
     }
@@ -365,14 +413,16 @@ namespace Hypertable { namespace ThriftGen {
       mutate_spec.appname = "test-cpp";
       mutate_spec.flush_interval = 1000;
 
+      Namespace ns = open_namespace("rediffmail");
+
       cells.push_back(make_cell("put1", "col", 0, "v1", "2008-11-11 22:22:22"));
       cells.push_back(make_cell("put2", "col", 0, "this_will_be_deleted", "2008-11-11 22:22:22"));
-      put_cells("thrift_test", mutate_spec, cells);
+      offer_cells(ns, "thrift_test", mutate_spec, cells);
       cells.clear();
       cells.push_back(make_cell("put1", "no_such_col", 0, "v1", "2008-11-11 22:22:22"));
       cells.push_back(make_cell("put2", "col", 0, "", "2008-11-11 22:22:23", 0,
-                                DELETE_ROW));
-      put_cells("thrift_test", mutate_spec, cells);
+                                ThriftGen::KeyFlag::DELETE_ROW));
+      offer_cells(ns, "thrift_test", mutate_spec, cells);
       sleep(2);
     }
 
@@ -547,8 +597,9 @@ int main(int argc, char **argv) {
   //char * action = NULL;
   senders = strdup(argv[1]);
   rcptto = strdup(argv[2]);
+
   if(argc < 5)
-    tablename = "rediffmail_srs";
+    tablename = "srs";
   else
     tablename = argv[4];
   //action = strdup(argv[3]);
@@ -559,6 +610,8 @@ int main(int argc, char **argv) {
   int rspcode = 0;
   Hypertable::ThriftGen::BasicTest test;
 
+  Hypertable::ThriftGen::Namespace ns = test.open_namespace("rediffmail");
+
   memset(MAP,0,sizeof(MAP));
   initHash();
   //printContent();
@@ -566,7 +619,7 @@ int main(int argc, char **argv) {
   //htkey += ":";
   //htkey += action;
   //std::cout << " HT KEY " << htkey <<std::endl;
-  rspcode = test.run(htkey,method,tablename,responseStr);
+  rspcode = test.run(htkey,method,ns,tablename,responseStr);
   /*char *rspStr = NULL;
     rspStr = new char[responseStr.length()];
     memset(rspStr,0,responseStr.length());
