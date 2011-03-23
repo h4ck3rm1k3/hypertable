@@ -46,7 +46,7 @@ namespace Hypertable { namespace ThriftGen {
   struct BasicTest : HqlServiceIf {
     boost::shared_ptr<Thrift::Client> client;
 
-    BasicTest() : client(new Thrift::Client("10.50.50.101", 38080)) { }
+    BasicTest() : client(new Thrift::Client("127.0.0.1", 38080)) { }
 
     void create_namespace(const std::string& ns) {
       client->create_namespace(ns);
