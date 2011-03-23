@@ -56,9 +56,40 @@ namespace Hypertable { namespace ThriftGen {
       client->create_table(ns, name, schema);
     }
 
+    Future open_future(int queue_size = 0) {
+      return client->open_future(queue_size);
+    }
+  
+    void cancel_future(const Future ff) {
+      return client->cancel_future(ff);
+    }
+  
+    void get_future_result(Result& _result, const Future ff) {
+      return client->get_future_result(_result, ff);
+    }
+  
+    void get_future_result_as_arrays(ResultAsArrays& _result, const Future ff) {
+      return client->get_future_result_as_arrays(_result, ff);
+    }
+  
+    void get_future_result_serialized(ResultSerialized & _result, const Future ff) {
+      return client->get_future_result_serialized(_result, ff);
+    }
+  
+    void close_future(const Future ff) {
+      client->close_future(ff);
+    }
+
+
     Scanner open_scanner(const Namespace ns, const std::string& name,
                          const ScanSpec& scan_spec,bool retry_table_not_found = true) {
       return client->open_scanner(ns, name, scan_spec, retry_table_not_found);
+    }
+
+    ScannerAsync open_scanner_async(const Namespace ns, const std::string& table,
+                                    const Future ff, const ScanSpec& scan_spec,
+                                    bool retry_table_not_found = true) {
+      return client->open_scanner_async(ns, table, ff, scan_spec, retry_table_not_found);
     }
 
     void next_cells_serialized(CellsSerialized& _return,
@@ -68,6 +99,10 @@ namespace Hypertable { namespace ThriftGen {
 
     void close_scanner(const Scanner scanner) {
       client->close_scanner(scanner);
+    }
+    
+    void close_scanner_async(const ScannerAsync scanner_async) {
+      client->close_scanner_async(scanner_async);
     }
 
     void next_cells(std::vector<Cell> & _return, const Scanner scanner) {
