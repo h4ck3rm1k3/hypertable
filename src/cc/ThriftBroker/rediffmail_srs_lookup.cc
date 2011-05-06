@@ -82,14 +82,13 @@ namespace Hypertable { namespace ThriftGen {
 
 
     Scanner open_scanner(const Namespace ns, const std::string& name,
-                         const ScanSpec& scan_spec,bool retry_table_not_found = true) {
-      return client->open_scanner(ns, name, scan_spec, retry_table_not_found);
+                         const ScanSpec& scan_spec) {
+      return client->open_scanner(ns, name, scan_spec);
     }
 
     ScannerAsync open_scanner_async(const Namespace ns, const std::string& table,
-                                    const Future ff, const ScanSpec& scan_spec,
-                                    bool retry_table_not_found = true) {
-      return client->open_scanner_async(ns, table, ff, scan_spec, retry_table_not_found);
+                                    const Future ff, const ScanSpec& scan_spec) {
+      return client->open_scanner_async(ns, table, ff, scan_spec);
     }
 
     void next_cells_serialized(CellsSerialized& _return,
