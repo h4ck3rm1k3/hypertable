@@ -59,27 +59,42 @@ namespace Hypertable { namespace ThriftGen {
     Future open_future(int queue_size = 0) {
       return client->open_future(queue_size);
     }
-  
+
     void cancel_future(const Future ff) {
       return client->cancel_future(ff);
     }
-  
+
+    bool future_is_empty(const Future ff) {
+      return client->future_is_empty(ff);
+    }
+
+    bool future_is_full(const Future ff) {
+      return client->future_is_full(ff);
+    }
+
+    bool future_is_cancelled(const Future ff) {
+      return client->future_is_cancelled(ff);
+    }
+
+    bool future_has_outstanding(const Future ff) {
+      return client->future_has_outstanding(ff);
+    }
+
     void get_future_result(Result& _result, const Future ff) {
       return client->get_future_result(_result, ff);
     }
-  
+
     void get_future_result_as_arrays(ResultAsArrays& _result, const Future ff) {
       return client->get_future_result_as_arrays(_result, ff);
     }
-  
+
     void get_future_result_serialized(ResultSerialized & _result, const Future ff) {
       return client->get_future_result_serialized(_result, ff);
     }
-  
+
     void close_future(const Future ff) {
       client->close_future(ff);
     }
-
 
     Scanner open_scanner(const Namespace ns, const std::string& name,
                          const ScanSpec& scan_spec) {
@@ -200,6 +215,15 @@ namespace Hypertable { namespace ThriftGen {
     void close_mutator(const Mutator mutator, const bool flush) {
       client->close_mutator(mutator, flush);
     }
+    
+    MutatorAsync open_mutator_async(const Namespace ns, const std::string& table,
+				    Future ff, int32_t flags) {
+      return client->open_mutator_async(ns, table, ff, flags);
+    }
+
+    void close_mutator_async(const MutatorAsync mutator) {
+      client->close_mutator_async(mutator);
+    }
 
     void flush_mutator(const Mutator mutator) {
       client->flush_mutator(mutator);
@@ -214,6 +238,35 @@ namespace Hypertable { namespace ThriftGen {
                          const CellsSerialized &cells,
                          bool flush) {
       client->set_cells_serialized(mutator, cells, flush);
+    }
+
+    void flush_mutator_async(const MutatorAsync mutator) {
+      client->flush_mutator_async(mutator);
+    }
+
+    void set_cell_async(const MutatorAsync mutator, const Cell& cell) {
+      client->set_cell_async(mutator, cell);
+    }
+
+    void set_cells_async(const MutatorAsync mutator, const std::vector<Cell> & cells) {
+      client->set_cells_async(mutator, cells);
+    }
+
+    void set_cell_as_array_async(const MutatorAsync mutator, const CellAsArray& cell) {
+      client->set_cell_as_array_async(mutator, cell);
+    }
+
+    void
+    set_cells_as_arrays_async(const MutatorAsync mutator,
+			      const std::vector<CellAsArray> & cells) {
+      client->set_cells_as_arrays_async(mutator, cells);
+    }
+
+    void
+    set_cells_serialized_async(const MutatorAsync mutator,
+			       const CellsSerialized &cells,
+			       bool flush) {
+      client->set_cells_serialized_async(mutator, cells, flush);
     }
 
     bool exists_namespace(const std::string& ns) {
