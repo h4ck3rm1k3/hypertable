@@ -56,6 +56,10 @@ namespace Hypertable { namespace ThriftGen {
       client->create_table(ns, name, schema);
     }
 
+    void alter_table(const Namespace ns, const std::string& table_name, const std::string& schema) {
+      client->alter_table(ns, table_name, schema);
+    }
+
     Future open_future(int queue_size = 0) {
       return client->open_future(queue_size);
     }
@@ -295,6 +299,10 @@ namespace Hypertable { namespace ThriftGen {
 
     void get_schema_str(std::string& _return, const Namespace ns, const std::string& name) {
       client->get_schema_str(_return, ns, name);
+    }
+
+    void get_schema_str_with_ids(std::string& _return, const Namespace ns, const std::string& table_name) {
+      client->get_schema_str(_return, ns, table_name);
     }
     
     void get_schema(Schema& _return, const Namespace ns, const std::string& name) {
