@@ -61,7 +61,7 @@ void dump_range_states(RangeServerMetaLogReader *rdr) {
     std::cout << "Found recover entry" << std::endl;
   else
     std::cout << "Recover entry not found" << std::endl;
-  foreach(const RangeStateInfo *i, rstates) std::cout << *i;
+  htforeach(const RangeStateInfo *i, rstates) std::cout << *i;
 }
 
 void dump_metalog(Filesystem &fs, const String &path, PropertiesPtr &cfg) {

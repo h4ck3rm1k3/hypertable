@@ -101,15 +101,15 @@ MasterMetaLog::recover(const String &path) {
       MetaLogEntries entries;
       ServerStates server_states = reader->load_server_states(&found_recover_entry);
 
-      foreach(const ServerStateInfo *state, server_states)
-        foreach (const MetaLogEntryPtr &e, state->transactions)
+      htforeach(const ServerStateInfo *state, server_states)
+        htforeach (const MetaLogEntryPtr &e, state->transactions)
           entries.push_back(e);
 
       MetaLogEntryPtr balance = reader->get_balance_started();
       if (balance)
         entries.push_back(balance);
       std::sort(entries.begin(), entries.end(), OrderByTimestamp());
-      foreach(MetaLogEntryPtr &e, entries)
+      htforeach(MetaLogEntryPtr &e, entries)
         serialize_entry(e.get(), buf);
     }
     catch (Hypertable::Exception &e) {
@@ -157,19 +157,19 @@ MasterMetaLog::purge(const ServerStates &ss) {
   int fd = create(tmp, true);
   MetaLogEntries entries;
 
-  foreach(const ServerStateInfo *i, ss) {
+  htforeach(const ServerStateInfo *i, ss) {
     if (i->transactions.empty()) {
       MetaLogEntry *entry = new_master_server_joined(i->location);
       entry->timestamp = i->timestamp; // important
       entries.push_back(entry);
     }
     else {
-      foreach (const MetaLogEntryPtr &p, i->transactions)
+      htforeach (const MetaLogEntryPtr &p, i->transactions)
         entries.push_back(p);
     }
   }
   std::sort(entries.begin(), entries.end(), OrderByTimestamp());
-  foreach(MetaLogEntryPtr &e, entries) write(e.get());
+  htforeach(MetaLogEntryPtr &e, entries) write(e.get());
   fs().close(fd);
 
   // rename existing log to name.save and tmp file to the log name

@@ -91,7 +91,7 @@ CommitLog::initialize(const String &log_dir,
 
   if (init_log) {
     stitch_in(init_log);
-    foreach (const CommitLogFileInfo &frag, m_fragment_queue) {
+    htforeach (const CommitLogFileInfo &frag, m_fragment_queue) {
       if (frag.num >= m_cur_fragment_num)
         m_cur_fragment_num = frag.num + 1;
     }
@@ -436,7 +436,7 @@ void CommitLog::get_stats(const String &prefix, String &result) {
   ScopedLock lock(m_mutex);
 
   try {
-    foreach (const CommitLogFileInfo &frag, m_fragment_queue) {
+    htforeach (const CommitLogFileInfo &frag, m_fragment_queue) {
       result += prefix + String("-log-fragment[") + frag.num + "]\tsize\t" + frag.size + "\n";
       result += prefix + String("-log-fragment[") + frag.num + "]\trevision\t" + frag.revision + "\n";
       result += prefix + String("-log-fragment[") + frag.num + "]\tdir\t" + frag.log_dir + "\n";

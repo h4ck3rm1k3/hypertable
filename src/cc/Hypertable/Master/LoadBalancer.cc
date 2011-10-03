@@ -36,7 +36,7 @@ void LoadBalancer::register_plan(BalancePlanPtr &plan) {
   m_plan = plan;
 
   // Insert moves into current set
-  foreach (RangeMoveSpecPtr &move, m_plan->moves) {
+  htforeach (RangeMoveSpecPtr &move, m_plan->moves) {
     std::pair<MoveSetT::iterator, bool> ret = m_current_set.insert(move);
     HT_ASSERT(ret.second);
   }
@@ -49,7 +49,7 @@ void LoadBalancer::register_plan(BalancePlanPtr &plan) {
 void LoadBalancer::deregister_plan(BalancePlanPtr &plan) {
   ScopedLock lock(m_mutex);
 
-  foreach (RangeMoveSpecPtr &move, m_plan->moves) {
+  htforeach (RangeMoveSpecPtr &move, m_plan->moves) {
     if (!move->complete) {
       std::pair<MoveSetT::iterator, bool> ret = m_incomplete_set.insert(move);
       if (!ret.second) {

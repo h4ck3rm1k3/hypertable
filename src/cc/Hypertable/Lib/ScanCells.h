@@ -67,7 +67,7 @@ public:
 
   size_t memory_used() const {
     size_t mem_used=0;
-    foreach(const ScanBlockPtr &v, m_scanblocks) {
+    htforeach(const ScanBlockPtr &v, m_scanblocks) {
       mem_used += v->memory_used();
     }
     return mem_used;

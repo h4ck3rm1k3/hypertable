@@ -75,7 +75,7 @@ ScanContext::initialize(int64_t rev, const ScanSpec *ss,
 
     if (spec && spec->columns.size() > 0) {
 
-      foreach(const char *cfstr, spec->columns) {
+      htforeach(const char *cfstr, spec->columns) {
         ScanSpec::parse_column(cfstr, family, qualifier, &has_qualifier, &is_regexp);
         cf = schema->get_column_family(family.c_str());
 
@@ -177,7 +177,7 @@ ScanContext::initialize(int64_t rev, const ScanSpec *ss,
       }
 
       if (spec->scan_and_filter_rows) {
-        foreach (const RowInterval& ri, spec->row_intervals) {
+        htforeach (const RowInterval& ri, spec->row_intervals) {
           rowset.insert(arena.dup(ri.start)); // ri.end is set to "" in order to safe space
         }
         end_row = *rowset.rbegin();

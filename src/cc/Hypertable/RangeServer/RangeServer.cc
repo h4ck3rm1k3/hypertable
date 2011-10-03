@@ -455,7 +455,7 @@ namespace {
         rsml_reader = new OldMetaLog::RangeServerMetaLogReader(Global::log_dfs.get(), meta_log_dir);
         if (!rsml_reader->empty()) {
           const OldMetaLog::RangeStates &range_states = rsml_reader->load_range_states(&found_recover_entry);
-          foreach(const OldMetaLog::RangeStateInfo *i, range_states) {
+          htforeach(const OldMetaLog::RangeStateInfo *i, range_states) {
             MetaLog::EntityPtr entity = new MetaLog::EntityRange(i->table, i->range, i->range_state, false);
             ((MetaLog::EntityRange *)entity.get())->load_acknowledged = true;
             entities.push_back(entity);
@@ -522,7 +522,7 @@ void RangeServer::local_recover() {
       // clear the replay map
       m_replay_map->clear();
 
-      foreach(MetaLog::EntityPtr &entity, entities) {
+      htforeach(MetaLog::EntityPtr &entity, entities) {
         range_entity = dynamic_cast<MetaLog::EntityRange *>(entity.get());
         if (range_entity->table.is_metadata() &&
             range_entity->spec.end_row && !strcmp(range_entity->spec.end_row, Key::END_ROOT_ROW)) {
@@ -538,7 +538,7 @@ void RangeServer::local_recover() {
         // Perform any range specific post-replay tasks
         rangev.clear();
         m_replay_map->get_range_vector(rangev);
-        foreach(RangePtr &range, rangev) {
+        htforeach(RangePtr &range, rangev) {
           range->recovery_finalize();
 	  if (range->get_state() == RangeState::SPLIT_LOG_INSTALLED ||
 	      range->get_state() == RangeState::SPLIT_SHRUNK)
@@ -578,7 +578,7 @@ void RangeServer::local_recover() {
       // clear the replay map
       m_replay_map->clear();
 
-      foreach(MetaLog::EntityPtr &entity, entities) {
+      htforeach(MetaLog::EntityPtr &entity, entities) {
         range_entity = dynamic_cast<MetaLog::EntityRange *>(entity.get());
         if (range_entity->table.is_metadata() &&
             !(range_entity->spec.end_row &&
@@ -595,7 +595,7 @@ void RangeServer::local_recover() {
         // Perform any range specific post-replay tasks
         rangev.clear();
         m_replay_map->get_range_vector(rangev);
-        foreach(RangePtr &range, rangev) {
+        htforeach(RangePtr &range, rangev) {
           range->recovery_finalize();
 	  if (range->get_state() == RangeState::SPLIT_LOG_INSTALLED ||
 	      range->get_state() == RangeState::SPLIT_SHRUNK)
@@ -637,7 +637,7 @@ void RangeServer::local_recover() {
       // clear the replay map
       m_replay_map->clear();
 
-      foreach(MetaLog::EntityPtr &entity, entities) {
+      htforeach(MetaLog::EntityPtr &entity, entities) {
         range_entity = dynamic_cast<MetaLog::EntityRange *>(entity.get());
         if (range_entity->table.is_system() && !range_entity->table.is_metadata())
           replay_load_range(0, range_entity, false);
@@ -651,7 +651,7 @@ void RangeServer::local_recover() {
         // Perform any range specific post-replay tasks
         rangev.clear();
         m_replay_map->get_range_vector(rangev);
-        foreach(RangePtr &range, rangev) {
+        htforeach(RangePtr &range, rangev) {
           range->recovery_finalize();
 	  if (range->get_state() == RangeState::SPLIT_LOG_INSTALLED ||
 	      range->get_state() == RangeState::SPLIT_SHRUNK)
@@ -693,7 +693,7 @@ void RangeServer::local_recover() {
       // clear the replay map
       m_replay_map->clear();
 
-      foreach(MetaLog::EntityPtr &entity, entities) {
+      htforeach(MetaLog::EntityPtr &entity, entities) {
         range_entity = dynamic_cast<MetaLog::EntityRange *>(entity.get());
         if (!range_entity->table.is_system())
           replay_load_range(0, range_entity, false);
@@ -707,7 +707,7 @@ void RangeServer::local_recover() {
         // Perform any range specific post-replay tasks
         rangev.clear();
         m_replay_map->get_range_vector(rangev);
-        foreach(RangePtr &range, rangev) {
+        htforeach(RangePtr &range, rangev) {
           range->recovery_finalize();
 	  if (range->get_state() == RangeState::SPLIT_LOG_INSTALLED ||
 	      range->get_state() == RangeState::SPLIT_SHRUNK)
@@ -1519,7 +1519,7 @@ RangeServer::load_range(ResponseCallback *cb, const TableIdentifier *table,
         md5DigestStr[16] = 0;
         table_dfsdir = Global::toplevel_dir + "/tables/" + table->id;
 
-        foreach(Schema::AccessGroup *ag, schema->get_access_groups()) {
+        htforeach(Schema::AccessGroup *ag, schema->get_access_groups()) {
           // notice the below variables are different "range" vs. "table"
           range_dfsdir = table_dfsdir + "/" + ag->name + "/" + md5DigestStr;
           Global::dfs->mkdirs(range_dfsdir);
@@ -2012,7 +2012,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
   if (auto_revision < m_last_revision)
     auto_revision = m_last_revision;
 
-  foreach (TableUpdate *table_update, updates) {
+  htforeach (TableUpdate *table_update, updates) {
 
     HT_DEBUG_OUT <<"Update: "<< table_update->id << HT_END;
 
@@ -2049,7 +2049,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
     table_update->id.encode(&table_update->go_buf.ptr);
     table_update->go_buf.set_mark();
 
-    foreach (UpdateRequest *request, table_update->requests) {
+    htforeach (UpdateRequest *request, table_update->requests) {
 
       total_updates++;
 
@@ -2391,7 +2391,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
     }
   }
 
-  foreach (TableUpdate *table_update, updates) {
+  htforeach (TableUpdate *table_update, updates) {
 
     if (table_update->error != Error::OK)
       continue;
@@ -2445,7 +2445,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
       ByteString value;
       Key key_comps;
 
-      foreach (RangeUpdate &update, (*iter).second->updates) {
+      htforeach (RangeUpdate &update, (*iter).second->updates) {
         Range *rangep = (*iter).first;
         Locker<Range> lock(*rangep);
         uint8_t *ptr = update.bufp->base + update.offset;
@@ -2498,7 +2498,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
 
 
   // decrement usage counters for all referenced ranges
-  foreach (TableUpdate *table_update, updates) {
+  htforeach (TableUpdate *table_update, updates) {
     for (hash_map<Range *, RangeUpdateList *>::iterator iter = table_update->range_map.begin(); iter != table_update->range_map.end(); ++iter) {
       if ((*iter).second->range_blocked)
         (*iter).first->decrement_update_counter();
@@ -2514,7 +2514,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
    * wait for these ranges to complete maintenance
    */
 
-  foreach (TableUpdate *table_update, updates) {
+  htforeach (TableUpdate *table_update, updates) {
 
     /**
      * If any of the newly updated ranges needs maintenance,
@@ -2531,10 +2531,10 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
       }
     }
 
-    foreach(Range *rangep, table_update->wait_ranges)
+    htforeach(Range *rangep, table_update->wait_ranges)
       rangep->wait_for_maintenance_to_complete();
 
-    foreach (UpdateRequest *request, table_update->requests) {
+    htforeach (UpdateRequest *request, table_update->requests) {
       ResponseCallbackUpdate cb(m_comm, request->event);
 
       if (table_update->error != Error::OK) {
@@ -2577,7 +2577,7 @@ RangeServer::batch_update(std::vector<TableUpdate *> &updates, boost::xtime expi
   }
 
   // Delete RangeUpdateList objects
-  foreach (TableUpdate *table_update, updates) {
+  htforeach (TableUpdate *table_update, updates) {
     for (hash_map<Range *, RangeUpdateList *>::iterator iter = table_update->range_map.begin();
          iter != table_update->range_map.end(); ++iter)
       delete (*iter).second;
@@ -3268,7 +3268,7 @@ void RangeServer::replay_commit(ResponseCallback *cb) {
 
     // Perform any range specific post-replay tasks
     m_replay_map->get_range_vector(rangev);
-    foreach(RangePtr &range, rangev)
+    htforeach(RangePtr &range, rangev)
       range->recovery_finalize();
 
     m_live_map->merge(m_replay_map);

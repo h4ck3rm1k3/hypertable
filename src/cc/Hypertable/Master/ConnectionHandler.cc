@@ -36,6 +36,8 @@
 #include "OperationBalance.h"
 #include "OperationCollectGarbage.h"
 #include "OperationCreateNamespace.h"
+
+
 #include "OperationCreateTable.h"
 #include "OperationDropNamespace.h"
 #include "OperationDropTable.h"

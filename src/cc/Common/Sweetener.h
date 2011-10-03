@@ -23,7 +23,8 @@
 /* Some syntactic sugars */
 
 #include <boost/foreach.hpp>
-
-#define foreach BOOST_FOREACH
+#include <boost/foreach_fwd.hpp>
+// this conflicts with boost, dont use foreach but htforeach 
+#define htforeach BOOST_FOREACH
 
 #endif // HYPERTABLE_SWEETENER_H

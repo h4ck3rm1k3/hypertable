@@ -258,7 +258,7 @@ RangeServerMetaLogReader::RangeServerMetaLogReader(Filesystem *fs,
 }
 
 RangeServerMetaLogReader::~RangeServerMetaLogReader() {
-  foreach(RangeStateInfo *i, m_range_states) delete i;
+  htforeach(RangeStateInfo *i, m_range_states) delete i;
 }
 
 MetaLogEntry *
@@ -331,7 +331,7 @@ std::ostream &operator<<(std::ostream &out, const RangeStateInfo &info) {
   if (info.transactions.size()) {
     out <<"\n  transactions=[\n";
 
-    foreach(const MetaLogEntryPtr &ptr, info.transactions)
+    htforeach(const MetaLogEntryPtr &ptr, info.transactions)
       out <<"    "<< ptr.get() <<'\n';
 
     out <<"  ]";

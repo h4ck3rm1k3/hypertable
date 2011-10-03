@@ -45,7 +45,7 @@ namespace Hypertable {
     };
 
     RSStats(const vector<int64_t> &compute_period_millis) {
-      foreach (int64_t compute_period, compute_period_millis) {
+      htforeach (int64_t compute_period, compute_period_millis) {
         m_stats_collectors.push_back(StatsCollector(compute_period));
       }
     }

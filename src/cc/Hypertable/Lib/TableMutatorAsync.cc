@@ -277,7 +277,7 @@ void TableMutatorAsync::flush(bool sync) {
 
 void TableMutatorAsync::get_unsynced_rangeservers(std::vector<CommAddress> &unsynced) {
   unsynced.clear();
-  foreach (const CommAddress &comm_addr, m_unsynced_rangeservers)
+  htforeach (const CommAddress &comm_addr, m_unsynced_rangeservers)
     unsynced.push_back(comm_addr);
 }
 
@@ -286,7 +286,7 @@ void TableMutatorAsync::do_sync() {
   try {
     if (!m_unsynced_rangeservers.empty()) {
       TableMutatorSyncDispatchHandler sync_handler(m_comm, m_table_identifier, m_timeout_ms);
-      foreach (CommAddress addr, m_unsynced_rangeservers)
+      htforeach (CommAddress addr, m_unsynced_rangeservers)
         sync_handler.add(addr);
 
       if (!sync_handler.wait_for_completion()) {
@@ -346,7 +346,7 @@ TableMutatorAsyncScatterBufferPtr TableMutatorAsync::get_outstanding_buffer(size
 }
 
 void TableMutatorAsync::update_unsynced_rangeservers(const CommAddressSet &unsynced) {
-  foreach (const CommAddress &comm_addr, unsynced)
+  htforeach (const CommAddress &comm_addr, unsynced)
     m_unsynced_rangeservers.insert(comm_addr);
 }
 

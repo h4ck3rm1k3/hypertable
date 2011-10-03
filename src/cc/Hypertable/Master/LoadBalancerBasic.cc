@@ -83,7 +83,7 @@ void LoadBalancerBasic::calculate_balance_plan(String algorithm, BalancePlanPtr 
 
     // when we see a new server wait for next maintenance interval to balance
     if (!m_waiting_for_servers) {
-      foreach(const RangeServerStatistics &server_stats, range_server_stats) {
+      htforeach(const RangeServerStatistics &server_stats, range_server_stats) {
         if (server_stats.stats->live && server_stats.stats->range_count == 0) {
           mode = BALANCE_MODE_DISTRIBUTE_TABLE_RANGES;
           range_server_stats.swap(m_range_server_stats);

@@ -88,7 +88,7 @@ TableScannerAsync::TableScannerAsync(Comm *comm, ApplicationQueuePtr &app_queue,
       ScanSpec rowset_scan_spec;
       scan_spec.base_copy(rowset_scan_spec);
       rowset_scan_spec.row_intervals.reserve(scan_spec.row_intervals.size());
-      foreach (const RowInterval& ri, scan_spec.row_intervals) {
+      htforeach (const RowInterval& ri, scan_spec.row_intervals) {
         if (ri.start != ri.end && strcmp(ri.start, ri.end) != 0) {
           scan_spec.base_copy(interval_scan_spec);
           interval_scan_spec.row_intervals.push_back(ri);

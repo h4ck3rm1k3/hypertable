@@ -106,13 +106,13 @@ void LiveFileTracker::update_files_column() {
 
   m_mutex.lock();
 
-  foreach(const String &file, m_live) {
+  htforeach(const String &file, m_live) {
     file_list += file + ";\n";
     printable_list += file + "; ";
   }
 
   m_blocked.clear();
-  foreach(const FileRefCountMap::value_type &v, m_referenced) {
+  htforeach(const FileRefCountMap::value_type &v, m_referenced) {
     if (m_live.count(v.first) == 0) {
       file_list += format("#%s;\n", v.first.c_str());
       printable_list += String("#") + v.first + "; ";
@@ -169,12 +169,12 @@ void LiveFileTracker::get_file_list(String &file_list, bool include_blocked) {
 
   file_list = "";
 
-  foreach(const String &file, m_live)
+  htforeach(const String &file, m_live)
     file_list += file + ";\n";
 
   if (include_blocked) {
     m_blocked.clear();
-    foreach(const FileRefCountMap::value_type &v, m_referenced) {
+    htforeach(const FileRefCountMap::value_type &v, m_referenced) {
       if (m_live.count(v.first) == 0) {
         file_list += format("#%s;\n", v.first.c_str());
         m_blocked.insert(v.first);

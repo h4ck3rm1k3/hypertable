@@ -63,7 +63,7 @@ AccessGroup::AccessGroup(const TableIdentifier *identifier,
 
   range_dir_initialize();
 
-  foreach(Schema::ColumnFamily *cf, ag->columns)
+  htforeach(Schema::ColumnFamily *cf, ag->columns)
     m_column_families.insert(cf->id);
 
   m_garbage_tracker.set_schema(schema, ag);
@@ -106,7 +106,7 @@ void AccessGroup::update_schema(SchemaPtr &schema,
   m_garbage_tracker.set_schema(schema, ag);
 
   if (schema->get_generation() > m_schema->get_generation()) {
-    foreach(Schema::ColumnFamily *cf, ag->columns) {
+    htforeach(Schema::ColumnFamily *cf, ag->columns) {
       if((iter = m_column_families.find(cf->id)) == m_column_families.end()) {
         // Add new column families
         if(cf->deleted == false ) {

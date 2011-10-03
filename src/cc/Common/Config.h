@@ -78,7 +78,7 @@ namespace Hypertable { namespace Config {
   }
 
   /** @see Properties */
-  HT_PROPERTIES_ABBR_ACCESSORS()
+  HT_PROPERTIES_ABBR_ACCESSORS_0()
 
   // Options description accessors
   /**

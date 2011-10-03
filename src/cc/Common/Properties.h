@@ -121,6 +121,46 @@ void validate(boost::any& v, const Strings &s, std::vector<T>*, int) {
   inline Doubles get_f64s(const String &name, const Doubles &default_value) \
     _const_ { return get(name, default_value); }
 
+// no params to make the compiler happy
+// warning: invoking macro HT_PROPERTIES_ABBR_ACCESSORS argument 1: empty macro arguments are undefined in ISO C90 and ISO C++98
+#define HT_PROPERTIES_ABBR_ACCESSORS_0() \
+  inline bool get_bool(const String &name)  { \
+    return get<bool>(name); } \
+  inline String get_str(const String &name)  { \
+    return get<String>(name); } \
+  inline Strings get_strs(const String &name)  { \
+    return get<Strings>(name); } \
+  inline uint16_t get_i16(const String &name)  { \
+    return get<uint16_t>(name); } \
+  inline int32_t get_i32(const String &name)  { \
+    return get<int32_t>(name); } \
+  inline int64_t get_i64(const String &name)  { \
+    return get<int64_t>(name); } \
+  inline Int64s get_i64s(const String &name)  { \
+    return get<Int64s>(name); } \
+  inline double get_f64(const String &name)  { \
+    return get<double>(name); } \
+  inline Doubles get_f64s(const String &name)  { \
+    return get<Doubles>(name); } \
+  inline bool get_bool(const String &name, bool default_value)  { \
+    return get(name, default_value); } \
+  inline String get_str(const String &name, const String &default_value) \
+     { return get(name, default_value); } \
+  inline Strings get_strs(const String &name, const Strings &default_value) \
+     { return get(name, default_value); } \
+  inline uint16_t get_i16(const String &name, uint16_t default_value) \
+     { return get(name, default_value); } \
+  inline int32_t get_i32(const String &name, int32_t default_value)  { \
+    return get(name, default_value); } \
+  inline int64_t get_i64(const String &name, int64_t default_value)  { \
+    return get(name, default_value); } \
+  inline Int64s get_i64s(const String &name, const Int64s &default_value) \
+     { return get(name, default_value); } \
+  inline double get_f64(const String &name, double default_value)  { \
+    return get(name, default_value); } \
+  inline Doubles get_f64s(const String &name, const Doubles &default_value) \
+     { return get(name, default_value); }
+
 namespace Hypertable {
 
 namespace Po = boost::program_options;

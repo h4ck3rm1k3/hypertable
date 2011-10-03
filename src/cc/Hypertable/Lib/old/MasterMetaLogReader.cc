@@ -315,7 +315,7 @@ MasterMetaLogReader::MasterMetaLogReader(Filesystem *fs, const String &path)
 }
 
 MasterMetaLogReader::~MasterMetaLogReader() {
-  foreach(ServerStateInfo *i, m_server_states) delete i;
+  htforeach(ServerStateInfo *i, m_server_states) delete i;
 }
 
 MetaLogEntry *
@@ -391,7 +391,7 @@ std::ostream &operator<<(std::ostream &out, const ServerStateInfo &info) {
   if (info.transactions.size()) {
     out <<"\n  transactions=[\n";
 
-    foreach(const MetaLogEntryPtr &ptr, info.transactions)
+    htforeach(const MetaLogEntryPtr &ptr, info.transactions)
       out <<"    "<< ptr.get() <<'\n';
 
     out <<"  ]";

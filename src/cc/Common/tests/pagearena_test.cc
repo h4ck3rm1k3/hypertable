@@ -118,7 +118,7 @@ void random_test(int n) {
   assert_same(v, v6);
   HT_BENCH1("strings clear", v6.clear(), n);
 
-  HT_BENCH1("malloc free", foreach(char *s, v) free(s), n);
+  HT_BENCH1("malloc free", htforeach(char *s, v) free(s), n);
   HT_BENCH1("malloc clear", v.clear(), n);
 }
 
@@ -126,7 +126,7 @@ void test_malloc_frag(int n) {
   Cstrs v;
   random_malloc_test(v, n);
   print_proc_stat();
-  HT_BENCH1("malloc free", foreach(char *s, v) free(s), n);
+  HT_BENCH1("malloc free", htforeach(char *s, v) free(s), n);
   HT_BENCH1("malloc clear", v.clear(), n);
 }
 
@@ -194,7 +194,7 @@ int main(int ac, char *av[]) {
     if (has("components")) {
       int pagesize = get_i32("page-size");
 
-      foreach(const String &co, get_strs("components")) {
+      htforeach(const String &co, get_strs("components")) {
         if (co == "malloc")
           run_test(bind(test_malloc_frag, n), true);
         else if (co == "arena")

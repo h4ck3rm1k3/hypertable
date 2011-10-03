@@ -86,6 +86,24 @@ extern "C" {
     break; \
   } while (true)
 
+#define HT_BDBTXN_EVT_END_0() \
+    catch (Exception &e) { \
+      if (e.code() != Error::HYPERSPACE_BERKELEYDB_DEADLOCK) { \
+        if (e.code() == Error::HYPERSPACE_BERKELEYDB_ERROR) \
+          HT_ERROR_OUT << e << HT_END; \
+        else \
+          HT_WARNF("%s - %s", Error::get_text(e.code()), e.what()); \
+        txn.abort(); \
+        return; \
+      } \
+      HT_WARN_OUT << "Berkeley DB deadlock encountered in txn "<< txn << HT_END; \
+      txn.abort(); \
+      poll(0, 0, (System::rand32() % 3000) + 1); \
+      continue; \
+    } \
+    break; \
+  } while (true)
+
 namespace Hyperspace {
   using namespace Hypertable;
   enum {
@@ -119,7 +137,7 @@ namespace Hyperspace {
           ms_bdb_fs->delete_event(txn, m_id);
           txn.commit(0);
         }
-        HT_BDBTXN_EVT_END();
+        HT_BDBTXN_EVT_END_0();
         m_cond.notify_all();
       }
     }

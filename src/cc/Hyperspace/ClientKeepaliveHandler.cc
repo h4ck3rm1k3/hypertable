@@ -61,7 +61,7 @@ ClientKeepaliveHandler::ClientKeepaliveHandler(Comm *comm, PropertiesPtr &cfg,
   DispatchHandlerPtr dhp(this);
   m_comm->create_datagram_receive_socket(m_local_addr, 0x10, dhp);
 
-  foreach(const String &replica, cfg->get_strs("Hyperspace.Replica.Host")) {
+  htforeach(const String &replica, cfg->get_strs("Hyperspace.Replica.Host")) {
     m_hyperspace_replicas.push_back(replica);
   }
 

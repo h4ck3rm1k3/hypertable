@@ -172,8 +172,8 @@ int main(int argc, char **argv) {
   cfmax = schema->get_max_column_family_id();
   cfnames.resize(cfmax+1);
 
-  foreach(Schema::AccessGroup *ag, schema->get_access_groups()) {
-    foreach(Schema::ColumnFamily *cf, ag->columns)
+  htforeach(Schema::AccessGroup *ag, schema->get_access_groups()) {
+    htforeach(Schema::ColumnFamily *cf, ag->columns)
       cfnames[cf->id] = cf->name;
   }
 

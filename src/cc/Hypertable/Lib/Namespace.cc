@@ -127,7 +127,7 @@ void Namespace::alter_table(const String &table_name, const String &alter_schema
   final_schema = new Schema(*(schema.get()));
   final_schema->incr_generation();
 
-  foreach(Schema::AccessGroup *alter_ag, alter_schema->get_access_groups()) {
+  htforeach(Schema::AccessGroup *alter_ag, alter_schema->get_access_groups()) {
     // create a new access group if needed
     if(!final_schema->access_group_exists(alter_ag->name)) {
       final_ag = new Schema::AccessGroup();
@@ -148,7 +148,7 @@ void Namespace::alter_table(const String &table_name, const String &alter_schema
   }
 
   // go through each column family to be altered
-  foreach(Schema::ColumnFamily *alter_cf, alter_schema->get_column_families()) {
+  htforeach(Schema::ColumnFamily *alter_cf, alter_schema->get_column_families()) {
     if (alter_cf->deleted) {
       if (!final_schema->drop_column_family(alter_cf->name))
         HT_THROW(Error::BAD_SCHEMA, final_schema->get_error_string());

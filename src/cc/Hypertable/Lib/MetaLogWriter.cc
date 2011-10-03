@@ -83,7 +83,7 @@ Writer::Writer(FilesystemPtr &fs, DefinitionPtr &definition, const String &path,
   write_header();
 
   // Write existing entries
-  foreach (EntityPtr &entity, initial_entities)
+  htforeach (EntityPtr &entity, initial_entities)
     record_state(entity.get());
 
   // Write "Recover" entity

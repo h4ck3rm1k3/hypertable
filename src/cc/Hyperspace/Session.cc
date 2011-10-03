@@ -62,7 +62,7 @@ Session::Session(Comm *comm, PropertiesPtr &cfg)
   if (m_reconnect)
     HT_INFO_OUT << "Hyperspace session setup to reconnect" << HT_END;
 
-  foreach(const String &replica, cfg->get_strs("Hyperspace.Replica.Host")) {
+  htforeach(const String &replica, cfg->get_strs("Hyperspace.Replica.Host")) {
     m_hyperspace_replicas.push_back(replica);
   }
 
@@ -890,7 +890,7 @@ String Session::locate(int type) {
     location = m_hyperspace_master +  "\n";
     break;
   case LOCATE_REPLICAS:
-    foreach(const String &replica, m_hyperspace_replicas)
+    htforeach(const String &replica, m_hyperspace_replicas)
       location += replica + "\n";
     break;
   }

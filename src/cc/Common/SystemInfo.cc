@@ -833,7 +833,7 @@ std::ostream &operator<<(std::ostream &out, const ProcInfo &i) {
   out <<"{ProcInfo: pid="<< i.pid <<" user="<< i.user <<" exe='"<< i.exe
       <<"'\n cwd='"<< i.cwd <<"' root='"<< i.root <<"'\n args=[";
 
-  foreach(const String &arg, i.args)
+  htforeach(const String &arg, i.args)
     out <<"'"<< arg <<"', ";
 
   out <<"]}";

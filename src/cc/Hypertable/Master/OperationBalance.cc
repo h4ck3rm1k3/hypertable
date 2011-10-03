@@ -45,7 +45,7 @@ OperationBalance::OperationBalance(ContextPtr &context, BalancePlanPtr &plan)
   : Operation(context, MetaLog::EntityType::OPERATION_BALANCE), m_plan(plan) {
   initialize_dependencies();
   // Clear table generations since they are not used
-  foreach (RangeMoveSpecPtr &move, m_plan->moves)
+  htforeach (RangeMoveSpecPtr &move, m_plan->moves)
     move->table.generation = 0;
 }
 
@@ -98,7 +98,7 @@ void OperationBalance::execute() {
       if (!m_plan->moves.empty()) {
         uint32_t wait_millis = m_plan->duration_millis / m_plan->moves.size();
 
-        foreach (RangeMoveSpecPtr &move, m_plan->moves) {
+        htforeach (RangeMoveSpecPtr &move, m_plan->moves) {
           addr.set_proxy(move->source_location);
           try {
             rsc.relinquish_range(addr, move->table, move->range);
@@ -111,7 +111,7 @@ void OperationBalance::execute() {
             m_context->balancer->move_complete(move->table, move->range, move->error);
           }
         }
-        foreach (RangeMoveSpecPtr &move, m_plan->moves)
+        htforeach (RangeMoveSpecPtr &move, m_plan->moves)
           HT_INFO_OUT << *move << HT_END;
       }
 

@@ -79,7 +79,7 @@ Comm::~Comm() {
   set<IOHandler *> handlers;
   m_handler_map->decomission_all(handlers);
 
-  foreach(IOHandler *handler, handlers)
+  htforeach(IOHandler *handler, handlers)
     handler->shutdown();
 
   // wait for all decomissioned handlers to get purged by Reactor

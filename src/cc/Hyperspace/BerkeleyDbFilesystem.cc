@@ -165,7 +165,7 @@ BerkeleyDbFilesystem::BerkeleyDbFilesystem(PropertiesPtr &props,
                             props->get_i32("Hyperspace.Replica.Replication.Timeout")*1000);
 
       int priority = m_replication_info.num_replicas;
-      foreach(String replica, props->get_strs("Hyperspace.Replica.Host")) {
+      htforeach(String replica, props->get_strs("Hyperspace.Replica.Host")) {
         bool is_ipv4 = InetAddr::is_ipv4(replica.c_str());
         bool is_localhost=false;
         Endpoint e;
@@ -313,7 +313,7 @@ BerkeleyDbFilesystem::~BerkeleyDbFilesystem() {
    */
   try {
     HT_INFO_OUT << "Closed DB handles for all threads " << HT_END;
-    foreach(ThreadHandleMap::value_type &val, m_thread_handle_map) {
+    htforeach(ThreadHandleMap::value_type &val, m_thread_handle_map) {
       (val.second)->close();
     }
     m_env.close(0);
@@ -405,7 +405,7 @@ void BerkeleyDbFilesystem::init_db_handles(const vector<Thread::id> &thread_ids)
   BDbHandlesPtr db_handles;
 
   // Assign per thread handles but don't open them yet
-  foreach(Thread::id thread_id, thread_ids) {
+  htforeach(Thread::id thread_id, thread_ids) {
     db_handles = new BDbHandles();
     m_thread_handle_map[thread_id] = db_handles;
     HT_INFO_OUT << "Created DB handles for thread: " << thread_id << HT_END;
@@ -1133,7 +1133,7 @@ BerkeleyDbFilesystem::get_directory_attr_listing(BDbTxn &txn, String fname,
   if (include_sub_entries) {
     if (!ends_with(fname, "/"))
       fname += "/";
-    foreach(DirEntryAttr &entry, listing)
+    htforeach(DirEntryAttr &entry, listing)
       if (entry.is_dir)
         get_directory_attr_listing(txn, fname + entry.name, aname, true, entry.sub_entries);
   }

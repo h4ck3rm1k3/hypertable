@@ -120,6 +120,31 @@ using namespace std;
     break; \
   } while (true)
 
+#define HT_BDBTXN_END_0()  \
+    catch (Exception &e) { \
+      if (e.code() == Error::HYPERSPACE_BERKELEYDB_DEADLOCK) {\
+        HT_INFO_OUT << "Berkeley DB deadlock encountered in txn "<< txn << HT_END; \
+        txn.abort(); \
+        poll(0, 0, (System::rand32() % 3000) + 1); \
+        continue; \
+      }\
+      else if (e.code() == Error::HYPERSPACE_BERKELEYDB_REP_HANDLE_DEAD) { \
+        HT_INFO_OUT << "Berkeley DB rep handle dead deadlock encountered in txn "\
+                    << txn << HT_END; \
+        txn.abort(); \
+        continue; \
+      }\
+      else if (e.code() == Error::HYPERSPACE_BERKELEYDB_ERROR) \
+        HT_ERROR_OUT << e << HT_END; \
+      else \
+        HT_ERRORF("%s - %s", Error::get_text(e.code()), e.what()); \
+      txn.abort(); \
+        return ; \
+    } \
+    HT_DEBUG_OUT << "end txn " << txn << HT_END; \
+    break; \
+  } while (true)
+
 /**
  * Sets up the m_base_dir variable to be the absolute path of the root of the
  * Hyperspace directory (with no trailing slash); Locks this root directory to
@@ -144,7 +169,7 @@ Master::Master(ConnectionManagerPtr &conn_mgr, PropertiesPtr &props,
     base_dir = data_dir / base_dir;
   }
 
-  m_base_dir = base_dir.directory_string();
+  m_base_dir = base_dir.string();
 
   HT_INFOF("BerkeleyDB base directory = '%s'", m_base_dir.c_str());
   m_lock_file = m_base_dir + "/lock";
@@ -330,7 +355,7 @@ void Master::initialize_session(uint64_t session_id, const String &name) {
     txn.commit(0);
     session_data->set_name(name);
   }
-  HT_BDBTXN_END();
+  HT_BDBTXN_END_0();
 
   HT_INFOF("Initialized session %llu (%s)", (Llu)session_id, name.c_str());
 }
@@ -462,14 +487,14 @@ void Master::remove_expired_sessions() {
       commited = true;
       expired_sessions.push_back(session_data->get_id());
     }
-    HT_BDBTXN_END();
+    HT_BDBTXN_END_0();
     // keep this outside the BDB txn since
     if (commited)
       session_data->expire();
   }
 
   // delete handles open by expired sessions
-  foreach(uint64_t handle, handles) {
+  htforeach(uint64_t handle, handles) {
     if (m_verbose)
       HT_INFOF("Destroying handle %llu", (Llu)handle);
     if (!destroy_handle(handle, error, errmsg, false))
@@ -480,12 +505,12 @@ void Master::remove_expired_sessions() {
   // delete expired sessions from BDB
   if (expired_sessions.size() > 0) {
     HT_BDBTXN_BEGIN() {
-      foreach (uint64_t expired_session, expired_sessions) {
+      htforeach (uint64_t expired_session, expired_sessions) {
         m_bdb_fs->delete_session(txn, expired_session);
       }
       txn.commit(0);
     }
-    HT_BDBTXN_END();
+    HT_BDBTXN_END_0();
   }
 }
 
@@ -2089,7 +2114,7 @@ void Master::grant_pending_lock_reqs(BDbTxn &txn, const String &node,
 
       lock_granted_event = new EventLockGranted(event_id, next_mode, lock_generation);
 
-      foreach(uint64_t handle, next_lock_handles) {
+      htforeach(uint64_t handle, next_lock_handles) {
         lock_handle(txn, handle, next_mode, node);
         session = m_bdb_fs->get_handle_session(txn, handle);
         lock_granted_notifications[handle] = session;
@@ -2168,7 +2193,7 @@ Master::deliver_event_notifications(HyperspaceEventPtr &event_ptr,
 
   if (has_notifications) {
 
-    foreach (session_id, sessions) {
+    htforeach (session_id, sessions) {
       m_keepalive_handler_ptr->deliver_event_notifications(session_id);
     }
 
@@ -2356,7 +2381,7 @@ void Master::get_generation_number() {
                             m_generation);
     txn.commit(0);
   }
-  HT_BDBTXN_END();
+  HT_BDBTXN_END_0();
 }
 
 /**

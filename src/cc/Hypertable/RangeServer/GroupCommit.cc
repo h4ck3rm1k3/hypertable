@@ -103,8 +103,8 @@ void GroupCommit::trigger() {
     m_range_server->batch_update(updates, expire_time);
 
     // Free objects
-    foreach (TableUpdate *table_update, updates) {
-      foreach (UpdateRequest *request, table_update->requests)
+    htforeach (TableUpdate *table_update, updates) {
+      htforeach (UpdateRequest *request, table_update->requests)
         delete request;
       delete table_update;
     }

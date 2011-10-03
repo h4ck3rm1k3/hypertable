@@ -215,7 +215,7 @@ void CellStoreV2::create_bloom_filter(bool is_approx) {
                  << m_trailer.filter_items_estimate << " items - "<< e << HT_END;
   }
 
-  foreach(const Blob &blob, *m_bloom_filter_items)
+  htforeach(const Blob &blob, *m_bloom_filter_items)
     m_bloom_filter->insert(blob.start, blob.size);
 
   delete m_bloom_filter_items;
@@ -763,7 +763,7 @@ bool CellStoreV2::may_contain(ScanContextPtr &scan_context) {
         boost::scoped_array<char> rowcol(new char[rowlen + 2]);
         memcpy(rowcol.get(), scan_context->start_row.c_str(), rowlen + 1);
 
-        foreach(const char *col, scan_context->spec->columns) {
+        htforeach(const char *col, scan_context->spec->columns) {
           uint8_t column_family_id = schema->get_column_family(col)->id;
           rowcol[rowlen + 1] = column_family_id;
 

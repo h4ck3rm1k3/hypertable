@@ -90,9 +90,9 @@ size_t ScanSpec::encoded_length() const {
                encoded_length_vstr(row_regexp) +
                encoded_length_vstr(value_regexp);
 
-  foreach(const char *c, columns) len += encoded_length_vstr(c);
-  foreach(const RowInterval &ri, row_intervals) len += ri.encoded_length();
-  foreach(const CellInterval &ci, cell_intervals) len += ci.encoded_length();
+  htforeach(const char *c, columns) len += encoded_length_vstr(c);
+  htforeach(const RowInterval &ri, row_intervals) len += ri.encoded_length();
+  htforeach(const CellInterval &ci, cell_intervals) len += ci.encoded_length();
 
   return len + 8 + 8 + 3;
 }
@@ -102,11 +102,11 @@ void ScanSpec::encode(uint8_t **bufp) const {
   encode_vi32(bufp, cell_limit);
   encode_vi32(bufp, max_versions);
   encode_vi32(bufp, columns.size());
-  foreach(const char *c, columns) encode_vstr(bufp, c);
+  htforeach(const char *c, columns) encode_vstr(bufp, c);
   encode_vi32(bufp, row_intervals.size());
-  foreach(const RowInterval &ri, row_intervals) ri.encode(bufp);
+  htforeach(const RowInterval &ri, row_intervals) ri.encode(bufp);
   encode_vi32(bufp, cell_intervals.size());
-  foreach(const CellInterval &ci, cell_intervals) ci.encode(bufp);
+  htforeach(const CellInterval &ci, cell_intervals) ci.encode(bufp);
   encode_i64(bufp, time_interval.first);
   encode_i64(bufp, time_interval.second);
   encode_bool(bufp, return_deletes);
@@ -200,17 +200,17 @@ ostream &Hypertable::operator<<(ostream &os, const ScanSpec &scan_spec) {
 
   if (!scan_spec.row_intervals.empty()) {
     os << "\n rows=";
-    foreach(const RowInterval &ri, scan_spec.row_intervals)
+    htforeach(const RowInterval &ri, scan_spec.row_intervals)
       os << " " << ri;
   }
   if (!scan_spec.cell_intervals.empty()) {
     os << "\n cells=";
-    foreach(const CellInterval &ci, scan_spec.cell_intervals)
+    htforeach(const CellInterval &ci, scan_spec.cell_intervals)
       os << " " << ci;
   }
   if (!scan_spec.columns.empty()) {
     os << "\n columns=(";
-    foreach (const char *c, scan_spec.columns)
+    htforeach (const char *c, scan_spec.columns)
       os <<"'"<< c << "' ";
     os <<')';
   }
@@ -232,14 +232,14 @@ ScanSpec::ScanSpec(CharArena &arena, const ScanSpec &ss)
   row_intervals.reserve(ss.row_intervals.size());
   cell_intervals.reserve(ss.cell_intervals.size());
 
-  foreach(const char *c, ss.columns)
+  htforeach(const char *c, ss.columns)
     add_column(arena, c);
 
-  foreach(const RowInterval &ri, ss.row_intervals)
+  htforeach(const RowInterval &ri, ss.row_intervals)
     add_row_interval(arena, ri.start, ri.start_inclusive,
                      ri.end, ri.end_inclusive);
 
-  foreach(const CellInterval &ci, ss.cell_intervals)
+  htforeach(const CellInterval &ci, ss.cell_intervals)
     add_cell_interval(arena, ci.start_row, ci.start_column, ci.start_inclusive,
                       ci.end_row, ci.end_column, ci.end_inclusive);
 }
