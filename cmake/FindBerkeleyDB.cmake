@@ -8,12 +8,12 @@
 #  BDB_FOUND, If false, do not try to use BerkeleyDB.
 #  also defined, but not for general use are
 #  BDB_LIBRARY, where to find the BerkeleyDB library.
+#/usr/local/BerkeleyDB.5.2
+SET(CMAKE_CXX_FLAGS "-DHAVE_CXX_STDHEADERS")
 
 find_path(BDB_INCLUDE_DIR db_cxx.h NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_INCLUDE_DIR}
-    /usr/local/BerkeleyDB.4.8/include
-    /usr/local/include/db48
-    /opt/local/include/db48
+    /usr/local/BerkeleyDB.5.2/include
     /usr/local/include
     /usr/include/db4
     /usr/include
@@ -22,9 +22,7 @@ find_path(BDB_INCLUDE_DIR db_cxx.h NO_DEFAULT_PATH PATHS
 set(BDB_NAMES ${BDB_NAMES} db_cxx)
 find_library(BDB_LIBRARY NAMES ${BDB_NAMES} NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
-    /usr/local/BerkeleyDB.4.8/lib
-    /usr/local/lib/db48
-    /opt/local/lib/db48
+    /usr/local/BerkeleyDB.5.2/lib
     /usr/local/lib
     /usr/lib
     )
