@@ -188,14 +188,14 @@ BerkeleyDbFilesystem::BerkeleyDbFilesystem(PropertiesPtr &props,
           // make sure all replicas are electable and have same priority
           m_env.rep_set_priority(priority);
 
-          m_env.repmgr_set_local_site(e.host.c_str(), e.port, 0);
+          //TODO not defined :m_env.repmgr_set_local_site(e.host.c_str(), e.port, 0);
           m_replication_info.localhost = e.host;
           HT_INFO_OUT << "Added local replication site " << e.host
               << " priority=" << priority << HT_END;
         }
         else {
           int eid;
-          m_env.repmgr_add_remote_site(e.host.c_str(), e.port, &eid, 0);
+          //TODO: not defined:m_env.repmgr_add_remote_site(e.host.c_str(), e.port, &eid, 0);
           m_replication_info.replica_map[eid] = e.host;
           HT_INFO_OUT << "Added remote replication site " << e.host
               << " priority=" << priority << HT_END;
