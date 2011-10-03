@@ -26,11 +26,10 @@ find_library(RRD_LIBRARY NAMES ${RRD_NAMES} NO_DEFAULT_PATH PATHS
 
 find_library(FREETYPE_LIBRARY freetype PATHS
     ${HT_DEPENDENCY_LIB_DIR}
-    /opt/local/lib
-    /usr/local/lib
     /usr/lib
-    /usr/lib64
     )
+
+message(STATUS "free type ${FREETYPE_LIBRARY} ")
 
 set(PNG_NAMES ${PNG_NAMES} png12 png14)
 find_library(PNG_LIBRARY NAMES ${PNG_NAMES} NO_DEFAULT_PATH PATHS
@@ -41,15 +40,15 @@ find_library(PNG_LIBRARY NAMES ${PNG_NAMES} NO_DEFAULT_PATH PATHS
     /usr/lib64
     )
 
-find_library(PANGOCAIRO_LIBRARY NAMES pangocairo NO_DEFAULT_PATH PATHS
+find_library(PANGOCAIRO_LIBRARY NAMES pangocairo-1.0 NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
-    /opt/local/lib
-    /usr/local/lib
     /usr/lib
-    /usr/lib64
     )
+#libpango1.0-dev: /usr/lib/libpangocairo-1.0.la
+message(STATUS "libpangocairo ${PANGOCAIRO_LIBRARY} ")
+#PANGOCAIRO_LIBRARY-NOTFOUND
 
-find_library(PANGO_LIBRARY NAMES pango NO_DEFAULT_PATH PATHS
+find_library(PANGO_LIBRARY NAMES pango-1.0 NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
     /opt/local/lib
     /usr/local/lib
@@ -69,7 +68,7 @@ find_library(CAIRO_LIBRARY NAMES cairo NO_DEFAULT_PATH PATHS
     /lib64
     )
 
-find_library(PANGOFT2_LIBRARY NAMES pangoft2 NO_DEFAULT_PATH PATHS
+find_library(PANGOFT2_LIBRARY NAMES pangoft2-1.0 NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
     /opt/local/lib
     /usr/local/lib
@@ -80,7 +79,7 @@ find_library(PANGOFT2_LIBRARY NAMES pangoft2 NO_DEFAULT_PATH PATHS
     )
 
 
-find_library(GOBJECT_LIBRARY NAMES gobject NO_DEFAULT_PATH PATHS
+find_library(GOBJECT_LIBRARY NAMES gobject-2.0 NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
     /opt/local/lib
     /usr/local/lib
@@ -90,7 +89,7 @@ find_library(GOBJECT_LIBRARY NAMES gobject NO_DEFAULT_PATH PATHS
     /lib64
     )
 
-find_library(GMODULE_LIBRARY NAMES gmodule NO_DEFAULT_PATH PATHS
+find_library(GMODULE_LIBRARY NAMES gmodule-2.0 NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
     /opt/local/lib
     /usr/local/lib
@@ -100,7 +99,7 @@ find_library(GMODULE_LIBRARY NAMES gmodule NO_DEFAULT_PATH PATHS
     /lib64
     )
 
-find_library(GLIB_LIBRARY NAMES glib NO_DEFAULT_PATH PATHS
+find_library(GLIB_LIBRARY NAMES glib-2.0 NO_DEFAULT_PATH PATHS
     ${HT_DEPENDENCY_LIB_DIR}
     /opt/local/lib
     /usr/local/lib
@@ -165,7 +164,7 @@ if (RRD_FOUND)
   endif ()
 else ()
   if (RRDtool_FIND_REQUIRED)
-    message(FATAL_ERROR "Could not find RRDtool library")
+    message(FATAL_ERROR "Could not find RRDtool library and other files")
   endif ()
 endif ()
 

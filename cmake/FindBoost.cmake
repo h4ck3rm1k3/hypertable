@@ -82,7 +82,7 @@ if (NOT Boost_INCLUDE_DIR)
     NAMES boost/config.hpp
     PATH_SUFFIXES ${SUFFIX_FOR_PATH}
     # Look in other places.
-    PATHS ${BOOST_DIR_SEARCH} /usr/include /usr/local/include /opt/local/include
+    PATHS /usr/local/include 
     # Help the user find it if we cannot.
     DOC "The ${BOOST_INCLUDE_PATH_DESCRIPTION}"
   )
@@ -121,7 +121,7 @@ macro(FIND_BOOST_LIBRARY lib libname libroot required)
 
   find_library(${lib} NO_DEFAULT_PATH
     NAMES ${${lib}_NAMES}
-    PATHS "${libroot}/lib" "${libroot}/lib64" /lib /usr/lib /usr/local/lib /opt/local/lib
+    PATHS /usr/local/lib 
   )
   if (required AND ${lib} MATCHES "NOTFOUND$")
     message(FATAL_ERROR "required boost library: ${lib} not found")
