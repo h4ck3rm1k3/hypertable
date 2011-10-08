@@ -16,12 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with Hypertable. If not, see <http://www.gnu.org/licenses/>
  */
+
 #include "Common/Compat.h"
 #include "Common/Init.h"
 #include "Common/Logger.h"
 #include "Common/Mutex.h"
 #include "Common/Random.h"
-
+#include <arpa/inet.h>
 #include <boost/shared_ptr.hpp>
 
 #include <concurrency/ThreadManager.h>
@@ -42,6 +43,8 @@
 #include "SerializedCellsReader.h"
 #include "SerializedCellsWriter.h"
 #include "ThriftHelper.h"
+
+
 
 #define THROW_TE(_code_, _str_) do { ThriftGen::ClientException te; \
   te.code = _code_; te.message = _str_; \
@@ -194,16 +197,16 @@ convert_scan_spec(const ThriftGen::ScanSpec &tss, Hypertable::ScanSpec &hss) {
     hss.scan_and_filter_rows = tss.scan_and_filter_rows;
 
   // shallow copy
-  foreach(const ThriftGen::RowInterval &ri, tss.row_intervals)
+  htforeach(const ThriftGen::RowInterval &ri, tss.row_intervals)
     hss.row_intervals.push_back(Hypertable::RowInterval(ri.start_row.c_str(),
         ri.start_inclusive, ri.end_row.c_str(), ri.end_inclusive));
 
-  foreach(const ThriftGen::CellInterval &ci, tss.cell_intervals)
+  htforeach(const ThriftGen::CellInterval &ci, tss.cell_intervals)
     hss.cell_intervals.push_back(Hypertable::CellInterval(
         ci.start_row.c_str(), ci.start_column.c_str(), ci.start_inclusive,
         ci.end_row.c_str(), ci.end_column.c_str(), ci.end_inclusive));
 
-  foreach(const std::string &col, tss.columns)
+  htforeach(const std::string &col, tss.columns)
     hss.columns.push_back(col.c_str());
 }
 
@@ -315,7 +318,7 @@ int32_t convert_cells(const Hypertable::Cells &hcells, ThriftCells &tcells) {
 
 void convert_cells(const ThriftCells &tcells, Hypertable::Cells &hcells) {
   // shallow copy
-  foreach(const ThriftGen::Cell &tcell, tcells) {
+  htforeach(const ThriftGen::Cell &tcell, tcells) {
     Hypertable::Cell hcell;
     convert_cell(tcell, hcell);
     hcells.push_back(hcell);
@@ -352,7 +355,7 @@ int32_t convert_cells(Hypertable::Cells &hcells, CellsSerialized &tcells) {
 void
 convert_cells(const ThriftCellsAsArrays &tcells, Hypertable::Cells &hcells) {
   // shallow copy
-  foreach(const CellAsArray &tcell, tcells) {
+  htforeach(const CellAsArray &tcell, tcells) {
     Hypertable::Cell hcell;
     convert_cell(tcell, hcell);
     hcells.push_back(hcell);
@@ -1230,7 +1233,7 @@ public:
       Hypertable::SchemaPtr schema = namespace_ptr->get_schema(table);
       if (schema) {
         Hypertable::Schema::AccessGroups ags = schema->get_access_groups();
-        foreach(Hypertable::Schema::AccessGroup *ag, ags) {
+        htforeach(Hypertable::Schema::AccessGroup *ag, ags) {
           ThriftGen::AccessGroup t_ag;
 
           t_ag.name = ag->name;
@@ -1239,7 +1242,7 @@ public:
           t_ag.compressor = ag->compressor;
           t_ag.bloom_filter = ag->bloom_filter;
 
-          foreach(Hypertable::Schema::ColumnFamily *cf, ag->columns) {
+          htforeach(Hypertable::Schema::ColumnFamily *cf, ag->columns) {
             ThriftGen::ColumnFamily t_cf;
             t_cf.name = cf->name;
             t_cf.ag = cf->ag;

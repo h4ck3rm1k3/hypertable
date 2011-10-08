@@ -433,7 +433,7 @@ struct BasicTest : HqlServiceIf {
 
     do {
       next_cells(cells, s);
-      foreach(const Cell &cell, cells)
+      htforeach(const Cell &cell, cells)
         out << cell << std::endl;
     } while (cells.size());
 
@@ -451,7 +451,7 @@ struct BasicTest : HqlServiceIf {
     s = open_scanner(ns, "thrift_test", ss);
     do {
       next_cells(cells, s);
-      foreach(const Cell &cell, cells)
+      htforeach(const Cell &cell, cells)
         out << cell << std::endl;
     } while (cells.size());
     close_namespace(ns);

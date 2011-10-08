@@ -20,9 +20,8 @@
 
 ulimit -c unlimited
 
-if [ "e$RUNTIME_ROOT" == "e" ]; then
-  RUNTIME_ROOT=$HYPERTABLE_HOME
-fi
+RUNTIME_ROOT=$HYPERTABLE_HOME
+
 
 
 die() {
@@ -198,14 +197,12 @@ start_server_no_check() {
 
 # Sanity check
 [ "$HYPERTABLE_HOME" ] || die "ERROR: HYPERTABLE_HOME is not set"
-versionre='/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(\.pre[0-9]*)?(\.[a-fA-F0-9]+)?|current)$'
-[[ $HYPERTABLE_HOME =~ $versionre ]] ||
-  die "ERROR: Invalid HYPERTABLE_HOME: $HYPERTABLE_HOME doesnt match regex ${versionre}"
+
 
 # Make sure log and run directories exist
 [ -d $RUNTIME_ROOT/run ] || mkdir $RUNTIME_ROOT/run
 [ -d $RUNTIME_ROOT/log ] || mkdir $RUNTIME_ROOT/log
 
 # Runtime libraries
-export LD_LIBRARY_PATH="$HYPERTABLE_HOME/lib:$LD_LIBRARY_PATH"
-export DYLD_LIBRARY_PATH="$LD_LIBRARY_PATH:$DYLD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$HYPERTABLE_HOME/lib"
+export DYLD_LIBRARY_PATH="$LD_LIBRARY_PATH"

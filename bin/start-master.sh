@@ -29,21 +29,21 @@ usage() {
   echo ""
 }
 
-while [ "$1" != "${1##[-+]}" ]; do
-  case $1 in
-    --valgrind)
-      VALGRIND="valgrind -v --log-file=vg --leak-check=full --num-callers=20 "
-      shift
-      ;;
-    --heapcheck)
-      HEAPCHECK="env HEAPCHECK=normal "
-      shift
-      ;;
-    *)
-      break
-      ;;
-  esac
-done
+# while [ "$1" != "${1##[-+]}" ]; do
+#   case $1 in
+#     --valgrind)
+#       VALGRIND="valgrind -v --log-file=vg --leak-check=full --num-callers=20 "
+#       shift
+#       ;;
+#     --heapcheck)
+#       HEAPCHECK="env HEAPCHECK=normal "
+#       shift
+#       ;;
+#     *)
+#       break
+#       ;;
+#   esac
+# done
 
 
 start_server master Hypertable.Master Hypertable.Master "$@"
