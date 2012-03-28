@@ -14,6 +14,9 @@ use Hypertable::ThriftGen::Types;
 
 package Hypertable::ThriftGen::ClientService_create_namespace_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_create_namespace_args->mk_accessors( qw( ns ) );
 
 sub new {
@@ -78,6 +81,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_create_namespace_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_create_namespace_result->mk_accessors( qw( ) );
 
 sub new {
@@ -143,6 +149,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_create_table_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_create_table_args->mk_accessors( qw( ns table_name schema ) );
 
 sub new {
@@ -237,6 +246,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_create_table_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_create_table_result->mk_accessors( qw( ) );
 
 sub new {
@@ -302,6 +314,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_alter_table_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_alter_table_args->mk_accessors( qw( ns table_name schema ) );
 
 sub new {
@@ -396,6 +411,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_alter_table_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_alter_table_result->mk_accessors( qw( ) );
 
 sub new {
@@ -461,6 +479,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_namespace_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_namespace_args->mk_accessors( qw( ns ) );
 
 sub new {
@@ -525,6 +546,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_namespace_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_namespace_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -605,6 +629,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_namespace_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_namespace_args->mk_accessors( qw( ns ) );
 
 sub new {
@@ -669,6 +696,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_namespace_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_namespace_result->mk_accessors( qw( ) );
 
 sub new {
@@ -734,6 +764,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_future_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_future_args->mk_accessors( qw( queue_size ) );
 
 sub new {
@@ -798,6 +831,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_future_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_future_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -878,6 +914,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_cancel_future_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_cancel_future_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -942,6 +981,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_cancel_future_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_cancel_future_result->mk_accessors( qw( ) );
 
 sub new {
@@ -1007,6 +1049,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_get_future_result_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_future_result_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1071,6 +1116,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_get_future_result_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_future_result_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -1152,6 +1200,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_get_future_result_as_arrays_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_future_result_as_arrays_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1216,6 +1267,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_get_future_result_as_arrays_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_future_result_as_arrays_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -1297,6 +1351,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_get_future_result_serialized_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_future_result_serialized_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1361,6 +1418,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_get_future_result_serialized_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_future_result_serialized_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -1442,6 +1502,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_is_empty_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_is_empty_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1506,6 +1569,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_is_empty_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_is_empty_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -1586,6 +1652,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_is_full_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_is_full_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1650,6 +1719,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_is_full_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_is_full_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -1730,6 +1802,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_is_cancelled_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_is_cancelled_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1794,6 +1869,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_is_cancelled_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_is_cancelled_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -1874,6 +1952,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_has_outstanding_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_has_outstanding_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -1938,6 +2019,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_future_has_outstanding_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_future_has_outstanding_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -2018,6 +2102,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_future_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_future_args->mk_accessors( qw( ff ) );
 
 sub new {
@@ -2082,6 +2169,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_future_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_future_result->mk_accessors( qw( ) );
 
 sub new {
@@ -2147,6 +2237,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_scanner_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_scanner_args->mk_accessors( qw( ns table_name scan_spec ) );
 
 sub new {
@@ -2242,6 +2335,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_scanner_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_scanner_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -2322,6 +2418,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_scanner_async_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_scanner_async_args->mk_accessors( qw( ns table_name future scan_spec ) );
 
 sub new {
@@ -2432,6 +2531,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_open_scanner_async_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_scanner_async_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -2512,6 +2614,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_scanner_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_scanner_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -2576,6 +2681,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_scanner_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_scanner_result->mk_accessors( qw( ) );
 
 sub new {
@@ -2641,6 +2749,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_scanner_async_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_scanner_async_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -2705,6 +2816,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_close_scanner_async_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_scanner_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -2770,6 +2884,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_cells_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_cells_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -2834,6 +2951,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_cells_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_cells_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -2936,6 +3056,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_cells_as_arrays_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_cells_as_arrays_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -3000,6 +3123,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_cells_as_arrays_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_cells_as_arrays_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -3122,6 +3248,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_cells_serialized_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_cells_serialized_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -3186,6 +3315,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_cells_serialized_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_cells_serialized_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -3250,6 +3382,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_row_args;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_row_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -3314,6 +3449,9 @@ sub write {
 
 package Hypertable::ThriftGen::ClientService_next_row_result;
 use base qw(Class::Accessor);
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_row_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -3479,7 +3617,10 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_next_row_as_arrays_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_row_as_arrays_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -3601,7 +3742,14 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_next_row_serialized_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_row_serialized_args->mk_accessors( qw( scanner ) );
 
 sub new {
@@ -3665,7 +3813,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_next_row_serialized_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_next_row_serialized_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -3745,7 +3897,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_row_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_row_args->mk_accessors( qw( ns table_name row ) );
 
 sub new {
@@ -3839,7 +3995,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_row_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_row_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -3941,7 +4101,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_row_as_arrays_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_row_as_arrays_args->mk_accessors( qw( ns name row ) );
 
 sub new {
@@ -4035,7 +4199,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_row_as_arrays_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_row_as_arrays_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -4157,7 +4325,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_row_serialized_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_row_serialized_args->mk_accessors( qw( ns table_name row ) );
 
 sub new {
@@ -4251,7 +4423,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_row_serialized_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_row_serialized_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -4331,7 +4507,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cell_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cell_args->mk_accessors( qw( ns table_name row column ) );
 
 sub new {
@@ -4440,7 +4620,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cell_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cell_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -4520,7 +4704,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cells_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cells_args->mk_accessors( qw( ns table_name scan_spec ) );
 
 sub new {
@@ -4615,7 +4803,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cells_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cells_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -4717,7 +4909,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cells_as_arrays_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cells_as_arrays_args->mk_accessors( qw( ns name scan_spec ) );
 
 sub new {
@@ -4812,7 +5008,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cells_as_arrays_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cells_as_arrays_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -4934,7 +5134,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cells_serialized_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cells_serialized_args->mk_accessors( qw( ns name scan_spec ) );
 
 sub new {
@@ -5029,7 +5233,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_cells_serialized_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_cells_serialized_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -5109,7 +5317,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_refresh_shared_mutator_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_refresh_shared_mutator_args->mk_accessors( qw( ns table_name mutate_spec ) );
 
 sub new {
@@ -5204,7 +5416,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_refresh_shared_mutator_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_refresh_shared_mutator_result->mk_accessors( qw( ) );
 
 sub new {
@@ -5269,7 +5485,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cells_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cells_args->mk_accessors( qw( ns table_name mutate_spec cells ) );
 
 sub new {
@@ -5401,7 +5621,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cells_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cells_result->mk_accessors( qw( ) );
 
 sub new {
@@ -5466,7 +5690,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cells_as_arrays_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cells_as_arrays_args->mk_accessors( qw( ns table_name mutate_spec cells ) );
 
 sub new {
@@ -5618,7 +5846,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cells_as_arrays_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cells_as_arrays_result->mk_accessors( qw( ) );
 
 sub new {
@@ -5683,7 +5915,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cell_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cell_args->mk_accessors( qw( ns table_name mutate_spec cell ) );
 
 sub new {
@@ -5794,7 +6030,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cell_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cell_result->mk_accessors( qw( ) );
 
 sub new {
@@ -5859,7 +6099,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cell_as_array_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cell_as_array_args->mk_accessors( qw( ns table_name mutate_spec cell ) );
 
 sub new {
@@ -5990,7 +6234,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_offer_cell_as_array_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_offer_cell_as_array_result->mk_accessors( qw( ) );
 
 sub new {
@@ -6055,7 +6303,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_open_mutator_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_mutator_args->mk_accessors( qw( ns table_name flags flush_interval ) );
 
 sub new {
@@ -6164,7 +6416,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_open_mutator_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_mutator_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -6244,7 +6500,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_open_mutator_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_mutator_async_args->mk_accessors( qw( ns table_name future flags ) );
 
 sub new {
@@ -6353,7 +6613,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_open_mutator_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_open_mutator_async_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -6433,7 +6697,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_close_mutator_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_mutator_args->mk_accessors( qw( mutator flush ) );
 
 sub new {
@@ -6512,7 +6780,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_close_mutator_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_mutator_result->mk_accessors( qw( ) );
 
 sub new {
@@ -6577,7 +6849,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_close_mutator_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_mutator_async_args->mk_accessors( qw( mutator ) );
 
 sub new {
@@ -6641,7 +6917,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_close_mutator_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_close_mutator_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -6706,7 +6986,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_args->mk_accessors( qw( mutator cell ) );
 
 sub new {
@@ -6786,7 +7070,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_result->mk_accessors( qw( ) );
 
 sub new {
@@ -6851,7 +7139,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_as_array_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_as_array_args->mk_accessors( qw( mutator cell ) );
 
 sub new {
@@ -6951,7 +7243,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_as_array_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_as_array_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7016,7 +7312,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_args->mk_accessors( qw( mutator cells ) );
 
 sub new {
@@ -7117,7 +7417,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7182,7 +7486,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_as_arrays_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_as_arrays_args->mk_accessors( qw( mutator cells ) );
 
 sub new {
@@ -7303,7 +7611,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_as_arrays_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_as_arrays_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7368,7 +7680,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_serialized_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_serialized_args->mk_accessors( qw( mutator cells flush ) );
 
 sub new {
@@ -7462,7 +7778,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_serialized_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_serialized_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7527,7 +7847,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_flush_mutator_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_flush_mutator_args->mk_accessors( qw( mutator ) );
 
 sub new {
@@ -7591,7 +7915,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_flush_mutator_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_flush_mutator_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7656,7 +7984,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_async_args->mk_accessors( qw( mutator cell ) );
 
 sub new {
@@ -7736,7 +8068,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7801,7 +8137,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_as_array_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_as_array_async_args->mk_accessors( qw( mutator cell ) );
 
 sub new {
@@ -7901,7 +8241,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cell_as_array_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cell_as_array_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -7966,7 +8310,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_async_args->mk_accessors( qw( mutator cells ) );
 
 sub new {
@@ -8067,7 +8415,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -8132,7 +8484,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_as_arrays_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_as_arrays_async_args->mk_accessors( qw( mutator cells ) );
 
 sub new {
@@ -8253,7 +8609,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_as_arrays_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_as_arrays_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -8318,7 +8678,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_serialized_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_serialized_async_args->mk_accessors( qw( mutator cells flush ) );
 
 sub new {
@@ -8412,7 +8776,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_set_cells_serialized_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_set_cells_serialized_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -8477,7 +8845,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_flush_mutator_async_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_flush_mutator_async_args->mk_accessors( qw( mutator ) );
 
 sub new {
@@ -8541,7 +8913,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_flush_mutator_async_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_flush_mutator_async_result->mk_accessors( qw( ) );
 
 sub new {
@@ -8606,7 +8982,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_exists_namespace_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_exists_namespace_args->mk_accessors( qw( ns ) );
 
 sub new {
@@ -8670,7 +9050,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_exists_namespace_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_exists_namespace_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -8750,7 +9134,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_exists_table_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_exists_table_args->mk_accessors( qw( ns name ) );
 
 sub new {
@@ -8829,7 +9217,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_exists_table_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_exists_table_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -8909,7 +9301,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_table_id_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_table_id_args->mk_accessors( qw( ns table_name ) );
 
 sub new {
@@ -8988,7 +9384,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_table_id_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_table_id_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -9068,7 +9468,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_schema_str_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_schema_str_args->mk_accessors( qw( ns table_name ) );
 
 sub new {
@@ -9147,7 +9551,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_schema_str_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_schema_str_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -9227,7 +9635,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_schema_str_with_ids_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_schema_str_with_ids_args->mk_accessors( qw( ns table_name ) );
 
 sub new {
@@ -9306,7 +9718,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_schema_str_with_ids_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_schema_str_with_ids_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -9386,7 +9802,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_schema_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_schema_args->mk_accessors( qw( ns table_name ) );
 
 sub new {
@@ -9465,7 +9885,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_schema_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_schema_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -9546,7 +9970,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_tables_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_tables_args->mk_accessors( qw( ns ) );
 
 sub new {
@@ -9610,7 +10038,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_tables_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_tables_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -9711,7 +10143,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_listing_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_listing_args->mk_accessors( qw( ns ) );
 
 sub new {
@@ -9775,7 +10211,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_listing_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_listing_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -9877,7 +10317,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_table_splits_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_table_splits_args->mk_accessors( qw( ns table_name ) );
 
 sub new {
@@ -9956,7 +10400,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_get_table_splits_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_get_table_splits_result->mk_accessors( qw( success ) );
 
 sub new {
@@ -10058,7 +10506,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_drop_namespace_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_drop_namespace_args->mk_accessors( qw( ns if_exists ) );
 
 sub new {
@@ -10137,7 +10589,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_drop_namespace_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_drop_namespace_result->mk_accessors( qw( ) );
 
 sub new {
@@ -10202,7 +10658,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_rename_table_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_rename_table_args->mk_accessors( qw( ns name new_name ) );
 
 sub new {
@@ -10296,7 +10756,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_rename_table_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_rename_table_result->mk_accessors( qw( ) );
 
 sub new {
@@ -10361,7 +10825,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_drop_table_args;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_drop_table_args->mk_accessors( qw( ns name if_exists ) );
 
 sub new {
@@ -10455,7 +10923,11 @@ sub write {
 }
 
 package Hypertable::ThriftGen::ClientService_drop_table_result;
-use base qw(Class::Accessor);
+use base qw(Class::Accessor); 
+use Carp qw(confess);
+
+use Data::Dumper;
+
 Hypertable::ThriftGen::ClientService_drop_table_result->mk_accessors( qw( ) );
 
 sub new {
@@ -10522,13 +10994,13 @@ sub write {
 package Hypertable::ThriftGen::ClientServiceIf;
 
 use strict;
-
+use Carp qw(confess);
 
 sub create_namespace{
   my $self = shift;
   my $ns = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub create_table{
@@ -10537,7 +11009,7 @@ sub create_table{
   my $table_name = shift;
   my $schema = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub alter_table{
@@ -10546,91 +11018,91 @@ sub alter_table{
   my $table_name = shift;
   my $schema = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub open_namespace{
   my $self = shift;
   my $ns = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub close_namespace{
   my $self = shift;
   my $ns = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub open_future{
   my $self = shift;
   my $queue_size = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub cancel_future{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_future_result{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_future_result_as_arrays{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_future_result_serialized{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub future_is_empty{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub future_is_full{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub future_is_cancelled{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub future_has_outstanding{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub close_future{
   my $self = shift;
   my $ff = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub open_scanner{
@@ -10639,7 +11111,7 @@ sub open_scanner{
   my $table_name = shift;
   my $scan_spec = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub open_scanner_async{
@@ -10649,63 +11121,63 @@ sub open_scanner_async{
   my $future = shift;
   my $scan_spec = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub close_scanner{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub close_scanner_async{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub next_cells{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub next_cells_as_arrays{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub next_cells_serialized{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub next_row{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub next_row_as_arrays{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub next_row_serialized{
   my $self = shift;
   my $scanner = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_row{
@@ -10714,7 +11186,7 @@ sub get_row{
   my $table_name = shift;
   my $row = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_row_as_arrays{
@@ -10723,7 +11195,7 @@ sub get_row_as_arrays{
   my $name = shift;
   my $row = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_row_serialized{
@@ -10732,7 +11204,7 @@ sub get_row_serialized{
   my $table_name = shift;
   my $row = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_cell{
@@ -10742,7 +11214,7 @@ sub get_cell{
   my $row = shift;
   my $column = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_cells{
@@ -10751,7 +11223,7 @@ sub get_cells{
   my $table_name = shift;
   my $scan_spec = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_cells_as_arrays{
@@ -10760,7 +11232,7 @@ sub get_cells_as_arrays{
   my $name = shift;
   my $scan_spec = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_cells_serialized{
@@ -10769,7 +11241,7 @@ sub get_cells_serialized{
   my $name = shift;
   my $scan_spec = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub refresh_shared_mutator{
@@ -10778,7 +11250,7 @@ sub refresh_shared_mutator{
   my $table_name = shift;
   my $mutate_spec = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub offer_cells{
@@ -10788,7 +11260,7 @@ sub offer_cells{
   my $mutate_spec = shift;
   my $cells = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub offer_cells_as_arrays{
@@ -10798,7 +11270,7 @@ sub offer_cells_as_arrays{
   my $mutate_spec = shift;
   my $cells = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub offer_cell{
@@ -10808,7 +11280,7 @@ sub offer_cell{
   my $mutate_spec = shift;
   my $cell = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub offer_cell_as_array{
@@ -10818,7 +11290,7 @@ sub offer_cell_as_array{
   my $mutate_spec = shift;
   my $cell = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub open_mutator{
@@ -10828,7 +11300,7 @@ sub open_mutator{
   my $flags = shift;
   my $flush_interval = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub open_mutator_async{
@@ -10838,7 +11310,7 @@ sub open_mutator_async{
   my $future = shift;
   my $flags = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub close_mutator{
@@ -10846,14 +11318,14 @@ sub close_mutator{
   my $mutator = shift;
   my $flush = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub close_mutator_async{
   my $self = shift;
   my $mutator = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cell{
@@ -10861,7 +11333,7 @@ sub set_cell{
   my $mutator = shift;
   my $cell = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cell_as_array{
@@ -10869,7 +11341,7 @@ sub set_cell_as_array{
   my $mutator = shift;
   my $cell = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cells{
@@ -10877,7 +11349,7 @@ sub set_cells{
   my $mutator = shift;
   my $cells = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cells_as_arrays{
@@ -10885,7 +11357,7 @@ sub set_cells_as_arrays{
   my $mutator = shift;
   my $cells = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cells_serialized{
@@ -10894,14 +11366,14 @@ sub set_cells_serialized{
   my $cells = shift;
   my $flush = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub flush_mutator{
   my $self = shift;
   my $mutator = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cell_async{
@@ -10909,7 +11381,7 @@ sub set_cell_async{
   my $mutator = shift;
   my $cell = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cell_as_array_async{
@@ -10917,7 +11389,7 @@ sub set_cell_as_array_async{
   my $mutator = shift;
   my $cell = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cells_async{
@@ -10925,7 +11397,7 @@ sub set_cells_async{
   my $mutator = shift;
   my $cells = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cells_as_arrays_async{
@@ -10933,7 +11405,7 @@ sub set_cells_as_arrays_async{
   my $mutator = shift;
   my $cells = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub set_cells_serialized_async{
@@ -10942,21 +11414,21 @@ sub set_cells_serialized_async{
   my $cells = shift;
   my $flush = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub flush_mutator_async{
   my $self = shift;
   my $mutator = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub exists_namespace{
   my $self = shift;
   my $ns = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub exists_table{
@@ -10964,7 +11436,7 @@ sub exists_table{
   my $ns = shift;
   my $name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_table_id{
@@ -10972,7 +11444,7 @@ sub get_table_id{
   my $ns = shift;
   my $table_name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_schema_str{
@@ -10980,7 +11452,7 @@ sub get_schema_str{
   my $ns = shift;
   my $table_name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_schema_str_with_ids{
@@ -10988,7 +11460,7 @@ sub get_schema_str_with_ids{
   my $ns = shift;
   my $table_name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_schema{
@@ -10996,21 +11468,21 @@ sub get_schema{
   my $ns = shift;
   my $table_name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_tables{
   my $self = shift;
   my $ns = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_listing{
   my $self = shift;
   my $ns = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub get_table_splits{
@@ -11018,7 +11490,7 @@ sub get_table_splits{
   my $ns = shift;
   my $table_name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub drop_namespace{
@@ -11026,7 +11498,7 @@ sub drop_namespace{
   my $ns = shift;
   my $if_exists = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub rename_table{
@@ -11035,7 +11507,7 @@ sub rename_table{
   my $name = shift;
   my $new_name = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 sub drop_table{
@@ -11044,7 +11516,7 @@ sub drop_table{
   my $name = shift;
   my $if_exists = shift;
 
-  die 'implement interface';
+  confess 'implement interface';
 }
 
 package Hypertable::ThriftGen::ClientServiceRest;
@@ -11586,6 +12058,9 @@ package Hypertable::ThriftGen::ClientServiceClient;
 
 
 use base qw(Hypertable::ThriftGen::ClientServiceIf);
+use Data::Dumper;
+use Carp qw(confess);
+
 sub new {
   my ($classname, $input, $output) = @_;
   my $self      = {};
@@ -11627,14 +12102,14 @@ sub recv_create_namespace{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_create_namespace_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -11676,14 +12151,14 @@ sub recv_create_table{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_create_table_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -11725,14 +12200,14 @@ sub recv_alter_table{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_alter_table_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -11768,7 +12243,7 @@ sub recv_open_namespace{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_open_namespace_result();
   $result->read($self->{input});
@@ -11778,9 +12253,10 @@ sub recv_open_namespace{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+      warn Dumper($result);
+    confess "ERROR!" . $result->{e};
   }
-  die "open_namespace failed: unknown result";
+  confess "open_namespace failed: unknown result";
 }
 sub close_namespace{
   my $self = shift;
@@ -11814,14 +12290,14 @@ sub recv_close_namespace{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_close_namespace_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -11857,7 +12333,7 @@ sub recv_open_future{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_open_future_result();
   $result->read($self->{input});
@@ -11867,9 +12343,9 @@ sub recv_open_future{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "open_future failed: unknown result";
+  confess "open_future failed: unknown result";
 }
 sub cancel_future{
   my $self = shift;
@@ -11903,14 +12379,14 @@ sub recv_cancel_future{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_cancel_future_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -11946,7 +12422,7 @@ sub recv_get_future_result{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_future_result_result();
   $result->read($self->{input});
@@ -11956,9 +12432,9 @@ sub recv_get_future_result{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_future_result failed: unknown result";
+  confess "get_future_result failed: unknown result";
 }
 sub get_future_result_as_arrays{
   my $self = shift;
@@ -11992,7 +12468,7 @@ sub recv_get_future_result_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_future_result_as_arrays_result();
   $result->read($self->{input});
@@ -12002,9 +12478,9 @@ sub recv_get_future_result_as_arrays{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_future_result_as_arrays failed: unknown result";
+  confess "get_future_result_as_arrays failed: unknown result";
 }
 sub get_future_result_serialized{
   my $self = shift;
@@ -12038,7 +12514,7 @@ sub recv_get_future_result_serialized{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_future_result_serialized_result();
   $result->read($self->{input});
@@ -12048,9 +12524,9 @@ sub recv_get_future_result_serialized{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_future_result_serialized failed: unknown result";
+  confess "get_future_result_serialized failed: unknown result";
 }
 sub future_is_empty{
   my $self = shift;
@@ -12084,7 +12560,7 @@ sub recv_future_is_empty{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_future_is_empty_result();
   $result->read($self->{input});
@@ -12094,9 +12570,9 @@ sub recv_future_is_empty{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "future_is_empty failed: unknown result";
+  confess "future_is_empty failed: unknown result";
 }
 sub future_is_full{
   my $self = shift;
@@ -12130,7 +12606,7 @@ sub recv_future_is_full{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_future_is_full_result();
   $result->read($self->{input});
@@ -12140,9 +12616,9 @@ sub recv_future_is_full{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "future_is_full failed: unknown result";
+  confess "future_is_full failed: unknown result";
 }
 sub future_is_cancelled{
   my $self = shift;
@@ -12176,7 +12652,7 @@ sub recv_future_is_cancelled{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_future_is_cancelled_result();
   $result->read($self->{input});
@@ -12186,9 +12662,9 @@ sub recv_future_is_cancelled{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "future_is_cancelled failed: unknown result";
+  confess "future_is_cancelled failed: unknown result";
 }
 sub future_has_outstanding{
   my $self = shift;
@@ -12222,7 +12698,7 @@ sub recv_future_has_outstanding{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_future_has_outstanding_result();
   $result->read($self->{input});
@@ -12232,9 +12708,9 @@ sub recv_future_has_outstanding{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "future_has_outstanding failed: unknown result";
+  confess "future_has_outstanding failed: unknown result";
 }
 sub close_future{
   my $self = shift;
@@ -12268,14 +12744,14 @@ sub recv_close_future{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_close_future_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -12317,7 +12793,7 @@ sub recv_open_scanner{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_open_scanner_result();
   $result->read($self->{input});
@@ -12327,9 +12803,9 @@ sub recv_open_scanner{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "open_scanner failed: unknown result";
+  confess "open_scanner failed: unknown result";
 }
 sub open_scanner_async{
   my $self = shift;
@@ -12372,7 +12848,7 @@ sub recv_open_scanner_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_open_scanner_async_result();
   $result->read($self->{input});
@@ -12382,9 +12858,9 @@ sub recv_open_scanner_async{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "open_scanner_async failed: unknown result";
+  confess "open_scanner_async failed: unknown result";
 }
 sub close_scanner{
   my $self = shift;
@@ -12418,14 +12894,14 @@ sub recv_close_scanner{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_close_scanner_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -12461,14 +12937,14 @@ sub recv_close_scanner_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_close_scanner_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -12504,7 +12980,7 @@ sub recv_next_cells{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_next_cells_result();
   $result->read($self->{input});
@@ -12514,9 +12990,9 @@ sub recv_next_cells{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "next_cells failed: unknown result";
+  confess "next_cells failed: unknown result";
 }
 sub next_cells_as_arrays{
   my $self = shift;
@@ -12550,7 +13026,7 @@ sub recv_next_cells_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_next_cells_as_arrays_result();
   $result->read($self->{input});
@@ -12560,9 +13036,9 @@ sub recv_next_cells_as_arrays{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "next_cells_as_arrays failed: unknown result";
+  confess "next_cells_as_arrays failed: unknown result";
 }
 sub next_cells_serialized{
   my $self = shift;
@@ -12596,7 +13072,7 @@ sub recv_next_cells_serialized{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_next_cells_serialized_result();
   $result->read($self->{input});
@@ -12605,7 +13081,7 @@ sub recv_next_cells_serialized{
   if (defined $result->{success} ) {
     return $result->{success};
   }
-  die "next_cells_serialized failed: unknown result";
+  confess "next_cells_serialized failed: unknown result";
 }
 sub next_row{
   my $self = shift;
@@ -12639,7 +13115,7 @@ sub recv_next_row{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_next_row_result();
   $result->read($self->{input});
@@ -12649,9 +13125,9 @@ sub recv_next_row{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "next_row failed: unknown result";
+  confess "next_row failed: unknown result";
 }
 sub next_row_as_arrays{
   my $self = shift;
@@ -12685,7 +13161,7 @@ sub recv_next_row_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_next_row_as_arrays_result();
   $result->read($self->{input});
@@ -12695,9 +13171,9 @@ sub recv_next_row_as_arrays{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "next_row_as_arrays failed: unknown result";
+  confess "next_row_as_arrays failed: unknown result";
 }
 sub next_row_serialized{
   my $self = shift;
@@ -12731,7 +13207,7 @@ sub recv_next_row_serialized{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_next_row_serialized_result();
   $result->read($self->{input});
@@ -12741,9 +13217,9 @@ sub recv_next_row_serialized{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "next_row_serialized failed: unknown result";
+  confess "next_row_serialized failed: unknown result";
 }
 sub get_row{
   my $self = shift;
@@ -12783,7 +13259,7 @@ sub recv_get_row{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_row_result();
   $result->read($self->{input});
@@ -12793,9 +13269,9 @@ sub recv_get_row{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_row failed: unknown result";
+  confess "get_row failed: unknown result";
 }
 sub get_row_as_arrays{
   my $self = shift;
@@ -12835,7 +13311,7 @@ sub recv_get_row_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_row_as_arrays_result();
   $result->read($self->{input});
@@ -12845,9 +13321,9 @@ sub recv_get_row_as_arrays{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_row_as_arrays failed: unknown result";
+  confess "get_row_as_arrays failed: unknown result";
 }
 sub get_row_serialized{
   my $self = shift;
@@ -12887,7 +13363,7 @@ sub recv_get_row_serialized{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_row_serialized_result();
   $result->read($self->{input});
@@ -12897,9 +13373,9 @@ sub recv_get_row_serialized{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_row_serialized failed: unknown result";
+  confess "get_row_serialized failed: unknown result";
 }
 sub get_cell{
   my $self = shift;
@@ -12942,7 +13418,7 @@ sub recv_get_cell{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_cell_result();
   $result->read($self->{input});
@@ -12952,9 +13428,9 @@ sub recv_get_cell{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_cell failed: unknown result";
+  confess "get_cell failed: unknown result";
 }
 sub get_cells{
   my $self = shift;
@@ -12994,7 +13470,7 @@ sub recv_get_cells{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_cells_result();
   $result->read($self->{input});
@@ -13004,9 +13480,9 @@ sub recv_get_cells{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_cells failed: unknown result";
+  confess "get_cells failed: unknown result";
 }
 sub get_cells_as_arrays{
   my $self = shift;
@@ -13046,7 +13522,7 @@ sub recv_get_cells_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_cells_as_arrays_result();
   $result->read($self->{input});
@@ -13056,9 +13532,9 @@ sub recv_get_cells_as_arrays{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_cells_as_arrays failed: unknown result";
+  confess "get_cells_as_arrays failed: unknown result";
 }
 sub get_cells_serialized{
   my $self = shift;
@@ -13098,7 +13574,7 @@ sub recv_get_cells_serialized{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_cells_serialized_result();
   $result->read($self->{input});
@@ -13108,9 +13584,9 @@ sub recv_get_cells_serialized{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_cells_serialized failed: unknown result";
+  confess "get_cells_serialized failed: unknown result";
 }
 sub refresh_shared_mutator{
   my $self = shift;
@@ -13150,14 +13626,14 @@ sub recv_refresh_shared_mutator{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_refresh_shared_mutator_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13202,14 +13678,14 @@ sub recv_offer_cells{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_offer_cells_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13254,14 +13730,14 @@ sub recv_offer_cells_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_offer_cells_as_arrays_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13306,14 +13782,14 @@ sub recv_offer_cell{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_offer_cell_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13358,14 +13834,14 @@ sub recv_offer_cell_as_array{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_offer_cell_as_array_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13410,7 +13886,7 @@ sub recv_open_mutator{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_open_mutator_result();
   $result->read($self->{input});
@@ -13420,9 +13896,9 @@ sub recv_open_mutator{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "open_mutator failed: unknown result";
+  confess "open_mutator failed: unknown result";
 }
 sub open_mutator_async{
   my $self = shift;
@@ -13465,7 +13941,7 @@ sub recv_open_mutator_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_open_mutator_async_result();
   $result->read($self->{input});
@@ -13475,9 +13951,9 @@ sub recv_open_mutator_async{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "open_mutator_async failed: unknown result";
+  confess "open_mutator_async failed: unknown result";
 }
 sub close_mutator{
   my $self = shift;
@@ -13514,14 +13990,14 @@ sub recv_close_mutator{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_close_mutator_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13557,14 +14033,14 @@ sub recv_close_mutator_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_close_mutator_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13603,14 +14079,14 @@ sub recv_set_cell{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cell_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess Dumper($result->{e});
   }
   return;
 }
@@ -13649,14 +14125,14 @@ sub recv_set_cell_as_array{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess Dumper($x);
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cell_as_array_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess Dumper($result->{e});
   }
   return;
 }
@@ -13695,14 +14171,14 @@ sub recv_set_cells{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cells_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13741,14 +14217,14 @@ sub recv_set_cells_as_arrays{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cells_as_arrays_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13790,14 +14266,14 @@ sub recv_set_cells_serialized{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cells_serialized_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13833,14 +14309,14 @@ sub recv_flush_mutator{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_flush_mutator_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13879,14 +14355,14 @@ sub recv_set_cell_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cell_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13925,14 +14401,14 @@ sub recv_set_cell_as_array_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cell_as_array_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -13971,14 +14447,14 @@ sub recv_set_cells_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cells_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -14017,14 +14493,14 @@ sub recv_set_cells_as_arrays_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cells_as_arrays_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -14066,14 +14542,14 @@ sub recv_set_cells_serialized_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_set_cells_serialized_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -14109,14 +14585,14 @@ sub recv_flush_mutator_async{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_flush_mutator_async_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -14152,7 +14628,7 @@ sub recv_exists_namespace{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_exists_namespace_result();
   $result->read($self->{input});
@@ -14162,9 +14638,9 @@ sub recv_exists_namespace{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "exists_namespace failed: unknown result";
+  confess "exists_namespace failed: unknown result";
 }
 sub exists_table{
   my $self = shift;
@@ -14201,7 +14677,7 @@ sub recv_exists_table{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_exists_table_result();
   $result->read($self->{input});
@@ -14211,9 +14687,9 @@ sub recv_exists_table{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "exists_table failed: unknown result";
+  confess "exists_table failed: unknown result";
 }
 sub get_table_id{
   my $self = shift;
@@ -14250,7 +14726,7 @@ sub recv_get_table_id{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_table_id_result();
   $result->read($self->{input});
@@ -14260,9 +14736,9 @@ sub recv_get_table_id{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_table_id failed: unknown result";
+  confess "get_table_id failed: unknown result";
 }
 sub get_schema_str{
   my $self = shift;
@@ -14299,7 +14775,7 @@ sub recv_get_schema_str{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_schema_str_result();
   $result->read($self->{input});
@@ -14309,9 +14785,9 @@ sub recv_get_schema_str{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_schema_str failed: unknown result";
+  confess "get_schema_str failed: unknown result";
 }
 sub get_schema_str_with_ids{
   my $self = shift;
@@ -14348,7 +14824,7 @@ sub recv_get_schema_str_with_ids{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_schema_str_with_ids_result();
   $result->read($self->{input});
@@ -14358,9 +14834,9 @@ sub recv_get_schema_str_with_ids{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_schema_str_with_ids failed: unknown result";
+  confess "get_schema_str_with_ids failed: unknown result";
 }
 sub get_schema{
   my $self = shift;
@@ -14397,7 +14873,7 @@ sub recv_get_schema{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_schema_result();
   $result->read($self->{input});
@@ -14407,9 +14883,9 @@ sub recv_get_schema{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_schema failed: unknown result";
+  confess "get_schema failed: unknown result";
 }
 sub get_tables{
   my $self = shift;
@@ -14443,7 +14919,7 @@ sub recv_get_tables{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_tables_result();
   $result->read($self->{input});
@@ -14453,9 +14929,9 @@ sub recv_get_tables{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_tables failed: unknown result";
+  confess "get_tables failed: unknown result";
 }
 sub get_listing{
   my $self = shift;
@@ -14489,7 +14965,7 @@ sub recv_get_listing{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_listing_result();
   $result->read($self->{input});
@@ -14499,9 +14975,9 @@ sub recv_get_listing{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_listing failed: unknown result";
+  confess "get_listing failed: unknown result";
 }
 sub get_table_splits{
   my $self = shift;
@@ -14538,7 +15014,7 @@ sub recv_get_table_splits{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_get_table_splits_result();
   $result->read($self->{input});
@@ -14548,9 +15024,9 @@ sub recv_get_table_splits{
     return $result->{success};
   }
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
-  die "get_table_splits failed: unknown result";
+  confess "get_table_splits failed: unknown result";
 }
 sub drop_namespace{
   my $self = shift;
@@ -14587,14 +15063,14 @@ sub recv_drop_namespace{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_drop_namespace_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -14636,14 +15112,14 @@ sub recv_rename_table{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_rename_table_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
@@ -14685,14 +15161,14 @@ sub recv_drop_table{
     my $x = new TApplicationException();
     $x->read($self->{input});
     $self->{input}->readMessageEnd();
-    die $x;
+    confess $x;
   }
   my $result = new Hypertable::ThriftGen::ClientService_drop_table_result();
   $result->read($self->{input});
   $self->{input}->readMessageEnd();
 
   if (defined $result->{e}) {
-    die $result->{e};
+    confess $result->{e};
   }
   return;
 }
